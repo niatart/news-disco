@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NVIDIA GTC 台北 2026 深度解析报告</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&family=Share+Tech+Mono&display=swap');
+
+  :root {
+    --bg: #0a0c10;
+    --surface: #111418;
+    --surface2: #181c22;
+    --border: #1e2530;
+    --green: #76ff03;
+    --green-dim: #4caf50;
+    --cyan: #00e5ff;
+    --amber: #ffab00;
+    --red: #ff3d00;
+    --text: #e8eaf0;
+    --text-muted: #8a9ab0;
+    --text-dim: #4a5568;
+    --accent-line: #76ff03;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* ── HEADER ── */
+  .report-header {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .report-header::before {
+    content: 'NVIDIA';
+    position: absolute;
+    right: -20px; top: 10px;
+    font-size: 140px;
+    font-weight: 900;
+    color: rgba(118,255,3,0.03);
+    letter-spacing: -8px;
+    pointer-events: none;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .tag-line {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1.report-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 16px;
+    color: #fff;
+  }
+  h1.report-title em {
+    color: var(--green);
+    font-style: normal;
+  }
+  .report-meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .report-meta span { margin-right: 24px; }
+
+  /* ── SECTION ── */
+  section { margin-top: 64px; }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .section-num {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 2px;
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  h2.section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 12px;
+    flex: 1;
+  }
+  h2.section-title .en {
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--text-muted);
+    margin-left: 12px;
+    font-weight: normal;
+  }
+
+  /* ── PRODUCT CARDS ── */
+  .product-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .product-card:hover { border-color: var(--green-dim); }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 24px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .card-icon {
+    width: 36px; height: 36px;
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .card-icon.green { background: rgba(118,255,3,0.12); }
+  .card-icon.cyan { background: rgba(0,229,255,0.12); }
+  .card-icon.amber { background: rgba(255,171,0,0.12); }
+  .card-icon.red { background: rgba(255,61,0,0.12); }
+  .card-icon.purple { background: rgba(179,136,255,0.12); }
+
+  .card-title-wrap h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .card-title-wrap .sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: 'Share Tech Mono', monospace;
+  }
+  .card-body { padding: 24px; }
+  .card-body p { color: var(--text); margin-bottom: 16px; }
+  .card-body p:last-child { margin-bottom: 0; }
+
+  /* ── SPEC TABLE ── */
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+  }
+  .spec-table tr { border-bottom: 1px solid var(--border); }
+  .spec-table tr:last-child { border-bottom: none; }
+  .spec-table td {
+    padding: 8px 12px;
+    vertical-align: top;
+  }
+  .spec-table td:first-child {
+    color: var(--text-muted);
+    width: 38%;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+  }
+  .spec-table td:last-child { color: var(--text); font-weight: 500; }
+
+  /* ── QUOTE ── */
+  blockquote {
+    border-left: 3px solid var(--green);
+    padding: 12px 20px;
+    margin: 20px 0;
+    background: rgba(118,255,3,0.04);
+    border-radius: 0 4px 4px 0;
+  }
+  blockquote p {
+    color: var(--cyan);
+    font-style: italic;
+    font-size: 14px;
+    margin: 0;
+  }
+  blockquote .attribution {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-style: normal;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── EXPLAINER BOX ── */
+  .explainer {
+    background: linear-gradient(135deg, rgba(118,255,3,0.06), rgba(0,229,255,0.04));
+    border: 1px solid rgba(118,255,3,0.25);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin: 32px 0;
+  }
+  .explainer-title {
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .explainer h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 19px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .explainer p { color: var(--text); margin-bottom: 14px; }
+  .explainer p:last-child { margin-bottom: 0; }
+  .explainer strong { color: var(--cyan); }
+
+  /* ── ANALOGY BOX ── */
+  .analogy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+  }
+  @media (max-width: 600px) { .analogy-grid { grid-template-columns: 1fr; } }
+  .analogy-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+  }
+  .analogy-item .emoji { font-size: 28px; margin-bottom: 8px; }
+  .analogy-item .label { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; }
+  .analogy-item .val { font-size: 13px; font-weight: 600; color: var(--text); }
+  .analogy-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; color: var(--green); margin: 12px 0;
+  }
+
+  /* ── KOL / LINKS ── */
+  .kol-card {
+    display: flex;
+    gap: 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .kol-card:hover { border-color: var(--cyan); }
+  .kol-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .kol-info .handle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: var(--cyan);
+    margin-bottom: 4px;
+  }
+  .kol-info .desc { font-size: 13px; color: var(--text-muted); }
+  .kol-info .note { font-size: 13px; color: var(--text); margin-top: 4px; }
+
+  /* ── VIDEO LINK ── */
+  .video-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+  }
+  .video-link:hover { border-color: var(--red); }
+  .play-btn {
+    width: 44px; height: 44px;
+    background: rgba(255,61,0,0.15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .video-meta .vt { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 3px; }
+  .video-meta .vs { font-size: 12px; color: var(--text-muted); font-family: 'Share Tech Mono', monospace; }
+
+  /* ── MARKET IMPACT ── */
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .market-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .market-item .ticker { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: var(--text-muted); }
+  .market-item .change { font-size: 22px; font-weight: 700; margin: 6px 0; }
+  .market-item .change.up { color: var(--green); }
+  .market-item .change.down { color: var(--red); }
+  .market-item .name { font-size: 11px; color: var(--text-dim); }
+
+  /* ── ANALYSIS ── */
+  .analysis-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 4px 4px 0;
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .analysis-box .label {
+    font-size: 11px;
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--amber);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  .analysis-box p { color: var(--text); font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 80px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'Share Tech Mono', monospace;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 32px 0;
+  }
+
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .highlight { color: var(--green); font-weight: 600; }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tag.new { background: rgba(118,255,3,0.15); color: var(--green); border: 1px solid rgba(118,255,3,0.3); }
+  .tag.prod { background: rgba(0,229,255,0.12); color: var(--cyan); border: 1px solid rgba(0,229,255,0.3); }
+  .tag.open { background: rgba(255,171,0,0.12); color: var(--amber); border: 1px solid rgba(255,171,0,0.3); }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="report-header">
+  <div class="tag-line">深度解析报告 · GTC 台北 2026</div>
+  <h1 class="report-title">
+    黄仁勋在 Computex 2026 发布的<em>六大颠覆性产品</em>全解析
+  </h1>
+  <div class="report-meta">
+    <span>📅 2026年6月1日</span>
+    <span>📍 台北音乐中心</span>
+    <span>🏷 GTC 台北 / COMPUTEX 2026</span>
+  </div>
+</header>
+
+<!-- ═══ 导语 ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">00 —</span>
+    <h2 class="section-title">导语 <span class="en">Introduction</span></h2>
+  </div>
+  <p>2026年6月1日，NVIDIA 创始人兼 CEO 黄仁勋（Jensen Huang）身着标志性皮夹克，登上台北音乐中心的舞台，用约两小时的演讲向全球宣告了一个新时代的到来。这场发布会正式命名为 <strong>GTC 台北 2026</strong>，与一年一度的 COMPUTEX 展会同期举行。</p>
+  <p style="margin-top:16px;">他宣布的内容涵盖面之广，令业界震动：<span class="highlight">六款全新数据中心芯片、首款面向 Windows 的消费级超级芯片、桌面级 AI 超算工作站、开源 AI 模型、物理 AI 世界基础模型，以及首款开源人形机器人参考设计</span>。彭博、《财富》、CNBC 等媒体当日均以头版报道。</p>
+  <blockquote>
+    <p>"Microsoft and Nvidia are going to reinvent the PC."</p>
+    <div class="attribution">— Jensen Huang，NVIDIA CEO，GTC 台北 2026 主题演讲</div>
+  </blockquote>
+
+  <a class="video-link" href="https://www.youtube.com/watch?v=gxgi6D-Cf9I" target="_blank" rel="noopener">
+    <div class="play-btn">▶</div>
+    <div class="video-meta">
+      <div class="vt">【官方完整视频】黄仁勋 Computex 2026 主题演讲</div>
+      <div class="vs">YouTube · NVIDIA GTC Taipei 2026 Keynote — 约2小时</div>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ 001 · RTX Spark ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">01 —</span>
+    <h2 class="section-title">RTX Spark 超级芯片（N1X）<span class="en">Consumer SoC</span></h2>
+  </div>
+
+  <!-- 先用通俗语言解释 -->
+  <div class="explainer">
+    <div class="explainer-title">🌐 大白话解读 · 社媒热传"一颗芯片取代显卡+内存+CPU"是怎么回事？</div>
+    <h3>为什么说 RTX Spark "一颗顶三颗"？</h3>
+    <p>传统电脑就像一套合租公寓：CPU 是客厅的工作区，GPU（显卡）是隔壁房间的绘图工作室，内存（RAM）是公用的书架。这三个"房间"通过走廊（数据总线）互相传递文件，走廊越窄，传递越慢。</p>
+    <p>RTX Spark 做的事情，是把这三个独立房间合并成<strong>一个超大的开放式工作空间</strong>——CPU 逻辑运算区、GPU 图形 & AI 运算区、最高 <strong>128 GB 统一内存</strong>，三者共用同一块"超宽走廊"（NVLink-C2C，带宽高达 600 GB/s，约是普通 PCIe 插槽的 5 倍），数据传递速度飞跃式提升，延迟大幅下降。</p>
+    <p>所以它不是"取代"了三件独立硬件，而是<strong>把三者直接集成在一颗芯片上</strong>。你不需要再单独购买显卡（GPU）、安装内存条、更换 CPU，一颗 RTX Spark 搞定一切。这和苹果 M 系列芯片的设计思路类似，但 NVIDIA 版本的优势在于拥有完整的 RTX 游戏生态和 CUDA AI 软件栈。</p>
+    <div class="analogy-grid">
+      <div class="analogy-item">
+        <div class="emoji">🖥</div>
+        <div class="label">传统方案</div>
+        <div class="val">CPU + 独立显卡 + 独立内存，三者通过总线通信</div>
+      </div>
+      <div class="analogy-item">
+        <div class="emoji">➡️</div>
+        <div class="label">RTX Spark</div>
+        <div class="val">一颗 SoC，CPU + GPU + 统一内存，极速互联</div>
+      </div>
+      <div class="analogy-item">
+        <div class="emoji">🍎</div>
+        <div class="label">类比参考</div>
+        <div class="val">苹果 M5 Max，同为 SoC 架构，但 CUDA 生态远超后者</div>
+      </div>
+    </div>
+    <p>社媒说法"取代独立显卡"在技术上有夸张之嫌——RTX Spark 面向的是轻薄本和小型台式机，性能约等于 RTX 5070 笔记本级显卡，而非旗舰级 RTX 5090。但对于普通用户和 AI 开发者而言，它确实能用一颗芯片完成过去需要多块板卡才能完成的工作。</p>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon green">⚡</div>
+      <div class="card-title-wrap">
+        <h3>NVIDIA RTX Spark 超级芯片（代号 N1X）</h3>
+        <div class="sub">CONSUMER SoC · 2026年秋季上市 · 合作伙伴：MediaTek、Microsoft</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag new">全新</span>这是 NVIDIA 十余年来首次进入消费级 PC 处理器市场，也是 Windows 平台历史上首款集成完整 CUDA + RTX 生态的 ARM 架构超级芯片，正面对标苹果 M5、高通 Snapdragon X Elite。</p>
+
+      <table class="spec-table">
+        <tr><td>制程工艺</td><td>台积电（TSMC）3nm EUV</td></tr>
+        <tr><td>晶体管数量</td><td>700亿颗</td></tr>
+        <tr><td>CPU 核心</td><td>20核 NVIDIA Grace（ARM v9.2）：10 高性能核 + 10 能效核，32MB L3缓存</td></tr>
+        <tr><td>GPU 核心</td><td>6,144 个 CUDA 核心（Blackwell 架构），第五代 Tensor Core（FP4精度），约等于 RTX 5070 笔记本显卡</td></tr>
+        <tr><td>统一内存</td><td>最高 128 GB LPDDR5X（CPU + GPU 共享），带宽约 270–300 GB/s</td></tr>
+        <tr><td>AI 算力</td><td>1 petaflop（FP4），可本地运行最大 120B 参数大模型</td></tr>
+        <tr><td>互联带宽</td><td>NVLink-C2C：600 GB/s（约 PCIe Gen5 的5倍）</td></tr>
+        <tr><td>游戏性能</td><td>DLSS 4.5 加速下支持 1440p @ 100+ FPS，支持光线追踪、G-Sync</td></tr>
+        <tr><td>合作 OEM</td><td>微软 Surface、戴尔、惠普、联想、华硕、微星（MSI）、宏碁、技嘉（后续）</td></tr>
+        <tr><td>上市时间</td><td>2026年秋季</td></tr>
+      </table>
+
+      <blockquote>
+        <p>"This reinvention of the computer is as big of a deal as the reinvention of the phone into what we now know as the smartphone."</p>
+        <div class="attribution">— Jensen Huang，Computex 2026 主题演讲</div>
+      </blockquote>
+
+      <p>黄仁勋在发布时展示了 RTX Spark 笔记本，表示这是"40年来PC的首次全面革新"。微软同步发布声明，表示搭载 RTX Spark 的 PC 将能在本地运行"高能力 AI 模型"和复杂工作负载，同时支持 Windows AI 代理（Agent）。</p>
+
+      <blockquote>
+        <p>"This is the first across the lineup of PC reinvention for 40 years."</p>
+        <div class="attribution">— Jensen Huang</div>
+      </blockquote>
+
+      <div class="analysis-box">
+        <div class="label">▸ 行业影响</div>
+        <p>发布当日，英特尔股价下跌约 6%，AMD 下跌约 5.5%，高通下跌约 8.9%；而 ARM Holdings 股价大涨约 15%（每颗 N1X 均需向 ARM 缴纳架构授权费）。戴尔、惠普股价各涨逾 7%。NVIDIA 本身上涨约 4%。</p>
+      </div>
+
+      <hr class="divider">
+      <p><strong>延伸阅读 / 深度分析：</strong></p>
+      <a class="kol-card" href="https://www.storagereview.com/news/nvidia-computex-2026-keynote-the-rtx-spark-pc-family-dgx-station-and-physical-ai" target="_blank" rel="noopener">
+        <div class="kol-avatar">🔬</div>
+        <div class="kol-info">
+          <div class="handle">StorageReview.com</div>
+          <div class="note">《NVIDIA Computex 2026 Keynote: RTX Spark PC Family, DGX Station, and Physical AI》——全面技术拆解，含对 Microsoft 支持能力的客观质疑</div>
+        </div>
+      </a>
+      <a class="kol-card" href="https://www.tomshardware.com/laptops/nvidia-unveils-rtx-spark-superchip-at-computex-2026-new-platform-promises-to-turn-windows-into-an-agentic-ai-os-with-arm-cpu-blackwell-gpu-and-128gb-unified-memory" target="_blank" rel="noopener">
+        <div class="kol-avatar">🖥</div>
+        <div class="kol-info">
+          <div class="handle">Tom's Hardware</div>
+          <div class="note">《Nvidia unveils RTX Spark Superchip at Computex 2026》——规格深度解读、与 Qualcomm Snapdragon X 的竞争分析</div>
+        </div>
+      </a>
+      <a class="kol-card" href="https://fourweekmba.com/nvidia-computex-2026-five-layer-strategy/" target="_blank" rel="noopener">
+        <div class="kol-avatar">📊</div>
+        <div class="kol-info">
+          <div class="handle">FourWeekMBA</div>
+          <div class="note">《Jensen Huang Just Announced 6 New Chips — Inside Nvidia's Computex 2026》——从五层 AI 经济战略视角解析 NVIDIA 全局布局</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 002 · Vera Rubin ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">02 —</span>
+    <h2 class="section-title">Vera Rubin 数据中心平台<span class="en">Data Center AI Platform</span></h2>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon cyan">🏭</div>
+      <div class="card-title-wrap">
+        <h3>NVIDIA Vera Rubin / VR200（NVL72 机架）</h3>
+        <div class="sub">DATA CENTER · 正式量产 · Blackwell 继任者</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag prod">量产</span>Vera Rubin 是 Blackwell 的直接继任者，也是黄仁勋在本次发布会上在数据中心领域最重磅的公告。他宣布 <strong>Vera Rubin 已全面进入量产阶段</strong>，在全球30个国家拥有超过350家供应链合作伙伴。</p>
+
+      <table class="spec-table">
+        <tr><td>GPU 架构</td><td>Rubin（双 Die 设计，3360亿晶体管，TSMC 3nm）</td></tr>
+        <tr><td>AI 算力（推理）</td><td>50 petaflops NVFP4（约为 Blackwell B300 的 3.3 倍）</td></tr>
+        <tr><td>显存</td><td>每 GPU 搭载 288 GB HBM4，内存带宽高达 22 TB/s</td></tr>
+        <tr><td>配套 CPU</td><td>NVIDIA Vera CPU（88核，基于自研 Olympus ARM 核心，227亿晶体管）</td></tr>
+        <tr><td>扩展互联</td><td>NVLink 第六代，整机带宽 260 TB/s（NVL72 机架）</td></tr>
+        <tr><td>标准机架</td><td>NVL72：72颗 Rubin GPU + 36颗 Vera CPU</td></tr>
+        <tr><td>早期客户</td><td>Anthropic、OpenAI、SpaceXAI（Vera CPU 率先部署）</td></tr>
+        <tr><td>OEM 合作</td><td>戴尔、惠普、华硕、微星（MSI）、Super Micro，2026年底前交货</td></tr>
+      </table>
+
+      <blockquote>
+        <p>"Vera CPUs are in full production and are going to be our new major growth driver on the boom of AI agents."</p>
+        <div class="attribution">— Jensen Huang，Computex 2026 主题演讲</div>
+      </blockquote>
+
+      <div class="analysis-box">
+        <div class="label">▸ 战略意义</div>
+        <p>Vera Rubin 标志着 NVIDIA 首次大规模自研数据中心级别 CPU，在推理与代理 AI 时代，CPU 负载显著上升（代理需要大量工具调用、编排、评估循环），NVIDIA 用 Vera CPU 直接切入 Intel 和 AMD 传统腹地。</p>
+      </div>
+
+      <a class="kol-card" href="https://videocardz.com/newz/nvidia-vera-rubin-nvl72-detailed-72-gpus-36-cpus-260-tb-s-scale-up-bandwidth" target="_blank" rel="noopener">
+        <div class="kol-avatar">📐</div>
+        <div class="kol-info">
+          <div class="handle">VideoCardz</div>
+          <div class="note">《NVIDIA Vera Rubin NVL72 Detailed》——完整规格拆解，含 Vera CPU 技术参数</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 003 · DGX Station for Windows ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">03 —</span>
+    <h2 class="section-title">DGX Station for Windows<span class="en">Desktop AI Supercomputer</span></h2>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon amber">🖥</div>
+      <div class="card-title-wrap">
+        <h3>DGX Station for Windows（桌面 AI 超算）</h3>
+        <div class="sub">WORKSTATION · 2026年底前发货 · 首款支持 Windows 的 GB300 工作站</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag new">全新</span>DGX Station 是 NVIDIA 面向企业开发者的"桌面旁 AI 超算"（Deskside AI Supercomputer），此前仅支持 Linux。本次发布会宣布<strong>全面支持 Windows</strong>，使企业能够在熟悉的 Windows 环境中构建、运行、连接始终在线的 AI 代理至 Windows 应用。</p>
+
+      <table class="spec-table">
+        <tr><td>核心芯片</td><td>GB300 Superchip（Blackwell Ultra GPU + 72核 Neoverse V2 CPU）</td></tr>
+        <tr><td>显存</td><td>252 GB HBM3e</td></tr>
+        <tr><td>模型支持</td><td>可运行千亿（Trillion）参数级别大模型，同时运行数百个 AI 代理</td></tr>
+        <tr><td>操作系统</td><td>Windows（含 Windows Subsystem for Linux）</td></tr>
+        <tr><td>可选扩展</td><td>RTX Pro 6000 Blackwell 工作站 GPU（物理 AI / 光线追踪）</td></tr>
+        <tr><td>集群能力</td><td>多台通过 ConnectX-8 SuperNIC 互联，组成桌面计算集群</td></tr>
+      </table>
+
+      <blockquote>
+        <p>"NVIDIA DGX Station for Windows is the world's most powerful deskside AI supercomputer designed to build, run and connect always-on AI agents to Windows applications."</p>
+        <div class="attribution">— NVIDIA 官方博客，Computex 2026 公告</div>
+      </blockquote>
+
+      <a class="kol-card" href="https://www.techzine.eu/news/devices/141718/nvidias-plans-for-vera-rubin-dgx-station-agents-and-robots/" target="_blank" rel="noopener">
+        <div class="kol-avatar">🔧</div>
+        <div class="kol-info">
+          <div class="handle">Techzine Global</div>
+          <div class="note">《Nvidia's plans for Vera Rubin, DGX Station, agents and robots》——企业 AI 基础设施全景解析</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 004 · NemoClaw + Nemotron 3 Ultra ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">04 —</span>
+    <h2 class="section-title">Agent Toolkit：NemoClaw + Nemotron 3 Ultra<span class="en">AI Agent Software Stack</span></h2>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon red">🤖</div>
+      <div class="card-title-wrap">
+        <h3>NVIDIA Agent Toolkit（NemoClaw + Nemotron 3 Ultra）</h3>
+        <div class="sub">SOFTWARE · 开源框架 · 2026年6月4日发布</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag open">开源</span>NVIDIA 发布全新 Agent Toolkit，核心是 <strong>NemoClaw</strong>（开源代理编排框架）与 <strong>Nemotron 3 Ultra</strong>（550B 参数混合专家模型，MoE），旨在让企业能在本地硬件（DGX Station、RTX Spark PC）上安全构建、运行始终在线的 AI 代理。</p>
+
+      <table class="spec-table">
+        <tr><td>Nemotron 3 Ultra</td><td>5500亿参数 MoE 模型（55B 激活参数），Intelligence Index 48，位居美国开源模型榜首</td></tr>
+        <tr><td>推理性能</td><td>每秒 300+ tokens，推理成本比同类模型低约 30%</td></tr>
+        <tr><td>NemoClaw</td><td>开源代理编排框架，支持 TensorRT、PyTorch、CUDA-native AI 工作流</td></tr>
+        <tr><td>OpenShell</td><td>安全运行时，提供策略控制、网络隔离与数据隐私保护</td></tr>
+        <tr><td>合作企业</td><td>富士康（Nurabot、CoDoctor 平台）、ServiceNow、SAP 等</td></tr>
+      </table>
+
+      <blockquote>
+        <p>"The world's software leaders are bringing AI agents into the systems where work gets done — showing how AI coworkers help employees think faster and execute complex tasks to solve bigger problems."</p>
+        <div class="attribution">— Jensen Huang，NemoClaw 发布声明</div>
+      </blockquote>
+
+      <a class="kol-card" href="https://gamesbeat.com/enterprise-software-companies-partner-to-use-nvidia-agent-toolkit/" target="_blank" rel="noopener">
+        <div class="kol-avatar">💼</div>
+        <div class="kol-info">
+          <div class="handle">GamesBeat</div>
+          <div class="note">《Enterprise software companies partner to use Nvidia Agent Toolkit》——企业落地场景详解</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 005 · Cosmos 3 ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">05 —</span>
+    <h2 class="section-title">Cosmos 3 物理 AI 基础模型<span class="en">Physical AI World Foundation Model</span></h2>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon purple">🌐</div>
+      <div class="card-title-wrap">
+        <h3>NVIDIA Cosmos 3（物理 AI 全能模型）</h3>
+        <div class="sub">OPEN MODEL · 全球首个开源物理 AI Omnimodel</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag open">开源</span><strong>Cosmos 3</strong> 是全球首个开源"物理 AI 全能模型"（Physical AI Omnimodel），内置原生视觉推理能力，在 7 个以上机器人基准测试中排名第一。它是连接数字世界与物理世界 AI 的关键基础设施。</p>
+
+      <table class="spec-table">
+        <tr><td>三个版本</td><td>Cosmos 3 Super（机器人/自动驾驶后训练）、Cosmos 3 Nano（快速推理）、Cosmos 3 Edge（实时边缘推理）</td></tr>
+        <tr><td>核心能力</td><td>视觉语言推理、世界模型生成、物理 AI 仿真</td></tr>
+        <tr><td>支持方向</td><td>机器人训练、自动驾驶、工厂 AI、虚拟世界生成</td></tr>
+        <tr><td>生态合作</td><td>Agile Robots、Black Forest Labs、Runway、Skild AI 等</td></tr>
+      </table>
+
+      <a class="kol-card" href="https://www.constellationr.com/insights/news/nvidias-vera-cpu-dgx-station-windows-pcs-all-go-same-place-ai-agents-running-locally" target="_blank" rel="noopener">
+        <div class="kol-avatar">🌍</div>
+        <div class="kol-info">
+          <div class="handle">Constellation Research</div>
+          <div class="note">《Nvidia's Vera CPU, DGX Station, Windows PCs all go to the same place》——Cosmos 3 在物理 AI 战略中的角色分析</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 006 · Isaac GR00T Robot ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">06 —</span>
+    <h2 class="section-title">Isaac GR00T 人形机器人参考设计<span class="en">Humanoid Robot Platform</span></h2>
+  </div>
+
+  <div class="product-card">
+    <div class="card-head">
+      <div class="card-icon green">🤖</div>
+      <div class="card-title-wrap">
+        <h3>NVIDIA Isaac GR00T 参考人形机器人</h3>
+        <div class="sub">ROBOTICS · 2026年底由 Unitree 发售 · 开放研究平台</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p><span class="tag new">全新</span>这是 NVIDIA 首款开放的人形机器人参考设计，旨在为学术研究机构提供统一的硬件 + 软件平台，加速通用人形机器人研究，无需依赖封闭的专有系统。</p>
+
+      <table class="spec-table">
+        <tr><td>底盘</td><td>Unitree H2 Plus（高约1.8米，重约68公斤，全身 31 个自由度）</td></tr>
+        <tr><td>灵巧手</td><td>Sharpa Wave 五指触觉手，每只手 22 个自由度，支持精细操作（臂力最大 120 N·m）</td></tr>
+        <tr><td>板载算力</td><td>NVIDIA Jetson AGX Thor T5000（Blackwell GPU + 128 GB 统一内存）</td></tr>
+        <tr><td>续航</td><td>约 3 小时（15Ah / ~1 kWh 电池）</td></tr>
+        <tr><td>AI 模型</td><td>GR00T N2（视觉-语言-动作模型，RoboArena/MolmoSpaces 双榜第一）</td></tr>
+        <tr><td>合作研究机构</td><td>ETH Zurich、Stanford Robotics Center、UC San Diego、Ai2 等</td></tr>
+        <tr><td>定价</td><td>Unitree H2 基础版约 $29,900（机器人本体）</td></tr>
+      </table>
+
+      <blockquote>
+        <p>"Humanoid robots will bring physical AI to the world's largest industries, opening a multitrillion-dollar economic opportunity. The NVIDIA Isaac GR00T Reference Humanoid Robot gives researchers a single, open platform to make breakthrough discoveries toward general-purpose physical intelligence."</p>
+        <div class="attribution">— Jensen Huang，Isaac GR00T 发布声明</div>
+      </blockquote>
+
+      <a class="kol-card" href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-NVIDIA-Isaac-GR00T-Reference-Humanoid-Robot-for-Academic-Research/default.aspx" target="_blank" rel="noopener">
+        <div class="kol-avatar">🔩</div>
+        <div class="kol-info">
+          <div class="handle">NVIDIA 官方投资者关系页面</div>
+          <div class="note">《NVIDIA Announces Isaac GR00T Reference Humanoid Robot for Academic Research》——官方完整发布公告</div>
+        </div>
+      </a>
+      <a class="kol-card" href="https://techbriefly.com/2026/06/01/nvidia-isaac-gr00t-humanoid-robot-platform-computex/" target="_blank" rel="noopener">
+        <div class="kol-avatar">🤖</div>
+        <div class="kol-info">
+          <div class="handle">TechBriefly</div>
+          <div class="note">《NVIDIA unveils Isaac Gr00t open humanoid robot platform at Computex》——含详细硬件参数与发布背景</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 市场反应 ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">07 —</span>
+    <h2 class="section-title">市场反应<span class="en">Market Impact</span></h2>
+  </div>
+
+  <p>发布会结束后，市场即时反应清晰呈现了本次发布的行业震动力：</p>
+
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="ticker">NVDA</div>
+      <div class="change up">+6%</div>
+      <div class="name">NVIDIA</div>
+    </div>
+    <div class="market-item">
+      <div class="ticker">ARM</div>
+      <div class="change up">+15%</div>
+      <div class="name">ARM Holdings</div>
+    </div>
+    <div class="market-item">
+      <div class="ticker">DELL / HP</div>
+      <div class="change up">+7%</div>
+      <div class="name">PC 制造商</div>
+    </div>
+    <div class="market-item">
+      <div class="ticker">INTC</div>
+      <div class="change down">-6%</div>
+      <div class="name">英特尔</div>
+    </div>
+    <div class="market-item">
+      <div class="ticker">AMD</div>
+      <div class="change down">-5.5%</div>
+      <div class="name">AMD</div>
+    </div>
+    <div class="market-item">
+      <div class="ticker">QCOM</div>
+      <div class="change down">-8.9%</div>
+      <div class="name">高通</div>
+    </div>
+  </div>
+
+  <a class="kol-card" href="https://www.cnbc.com/2026/06/01/jim-cramer-jensen-huang-computex-keynote-revealed-winners-ai-boom.html" target="_blank" rel="noopener">
+    <div class="kol-avatar">📺</div>
+    <div class="kol-info">
+      <div class="handle">CNBC · Jim Cramer《Mad Money》</div>
+      <div class="note">《Jim Cramer says Jensen Huang's Computex keynote revealed more winners in the AI boom》——指出 ARM Holdings、CoreWeave、Oracle、Nebius 均受益，AI 基础设施热潮受提振</div>
+    </div>
+  </a>
+
+  <a class="kol-card" href="https://www.techtimes.com/articles/317544/20260601/nvidia-enters-pc-chip-market-rtx-spark-intel-falls-6-amd-drops-5-open.htm" target="_blank" rel="noopener">
+    <div class="kol-avatar">📉</div>
+    <div class="kol-info">
+      <div class="handle">TechTimes</div>
+      <div class="note">《Nvidia Enters PC Chip Market With RTX Spark: Intel Falls 6%, AMD Drops 5% at Open》——详细分析英特尔、AMD、高通股价波动原因</div>
+    </div>
+  </a>
+</section>
+
+<!-- ═══ 综合评析 ═══ -->
+<section>
+  <div class="section-header">
+    <span class="section-num">08 —</span>
+    <h2 class="section-title">综合评析<span class="en">Analysis</span></h2>
+  </div>
+
+  <div class="analysis-box">
+    <div class="label">▸ 战略逻辑</div>
+    <p>本次发布会的底层逻辑是 NVIDIA 从"GPU 公司"向"全栈 AI 平台公司"的彻底转型。从数据中心（Vera Rubin）到个人电脑（RTX Spark）、再到桌面工作站（DGX Station）、AI 软件（NemoClaw/Nemotron）、物理世界基础模型（Cosmos 3）、直至人形机器人（GR00T），NVIDIA 在单次发布会上覆盖了 AI 经济的每一个层次——这是当前全球没有任何一家公司能够同时做到的。</p>
+  </div>
+
+  <div class="analysis-box" style="border-left-color: var(--cyan);">
+    <div class="label" style="color: var(--cyan);">▸ 潜在挑战</div>
+    <p>批评声音同样值得关注：其一，RTX Spark PC 的实际价格能否突破 $1,500 门槛走向大众市场，仍存疑问（DigiTimes 分析师 Jason Tsai 语）；其二，StorageReview 对微软能否有效支持这类 ARM 设备持谨慎态度；其三，Windows on ARM 的软件兼容性（尤其是游戏反作弊系统）仍是近期挑战。Vera Rubin 则面临 HBM4 供应瓶颈与液冷基础设施要求。</p>
+  </div>
+
+  <div class="analysis-box" style="border-left-color: var(--amber);">
+    <div class="label">▸ 与苹果的类比</div>
+    <p>最具参考意义的历史类比，是苹果 2020 年的 Apple Silicon（M1）转型——通过自研 SoC 将 Mac 的功耗效率与性能同步提升，彻底重塑笔记本电脑行业格局。NVIDIA 的 RTX Spark 走的是同一条路，但增加了 CUDA 生态这张决定性的牌：对于 AI 研究者和开发者而言，CUDA 工具链的迁移成本远高于从 Intel 换到 ARM。</p>
+  </div>
+
+  <p style="margin-top: 24px;">总结而言，Computex 2026 不只是一场产品发布会，而是 NVIDIA 向全球宣告其已成为 AI 时代底层操作系统构建者的战略宣言。</p>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>本报告基于 Fortune、CNBC、Tom's Hardware、StorageReview、TechZine、NVIDIA 官方新闻稿等公开报道整理 · 仅供内部参考</p>
+  <p style="margin-top:8px;">报告生成时间：2026年6月2日 · 数据来源截止：2026年6月1日发布会当日</p>
+</footer>
+
+</body>
+</html>

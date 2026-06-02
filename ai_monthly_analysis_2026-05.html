@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 月度分析报告 · 2026-04-27 至 2026-05-27</title>
+  <style>
+    :root {
+      --ink: #171412;
+      --paper: #f6f1e8;
+      --paper-2: #ece4d4;
+      --rule: #c7bdaa;
+      --accent: #b8322a;
+      --blue: #18314f;
+      --green: #28634a;
+      --gold: #9a6a10;
+      --muted: #6a6258;
+      --white: #fffdfa;
+      --rose: #7a251f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      line-height: 1.72;
+    }
+
+    a { color: var(--blue); text-underline-offset: 3px; }
+
+    .page {
+      width: min(1060px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 72px;
+    }
+
+    .masthead {
+      text-align: center;
+      border-top: 4px solid var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 30px 0 24px;
+      margin-bottom: 28px;
+    }
+
+    .kicker,
+    .dateline,
+    .label,
+    .tag,
+    .source-note,
+    .confidence {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: 0.08em;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: clamp(40px, 8vw, 78px);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subtitle {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dateline {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .lead {
+      background: var(--ink);
+      color: var(--paper);
+      border-left: 6px solid var(--accent);
+      padding: 28px 32px;
+      margin-bottom: 34px;
+    }
+
+    .lead p {
+      margin: 0 0 13px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 20px;
+    }
+
+    .lead p:last-child { margin-bottom: 0; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 40px;
+    }
+
+    .stat {
+      background: var(--white);
+      padding: 18px 14px;
+      text-align: center;
+      min-height: 112px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 29px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 42px 0 8px;
+    }
+
+    .label {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 4px 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    h2 {
+      margin: 0 0 6px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 31px;
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      margin: 0 0 22px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      border: 1px solid var(--rule);
+      background: var(--white);
+      margin-bottom: 34px;
+    }
+
+    .feature-main {
+      padding: 28px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .feature-side {
+      background: var(--paper-2);
+      padding: 22px;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", "Songti SC", serif;
+      font-size: 20px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    p { margin: 0 0 12px; }
+
+    .tag {
+      color: var(--accent);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .confidence {
+      display: inline-block;
+      margin: 2px 0 9px;
+      padding: 2px 7px;
+      border: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .verdict {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--accent);
+      background: var(--paper-2);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--accent);
+      padding: 20px;
+    }
+
+    .card.blue { border-top-color: var(--blue); }
+    .card.green { border-top-color: var(--green); }
+    .card.gold { border-top-color: var(--gold); }
+    .card.rose { border-top-color: var(--rose); }
+
+    .card p,
+    .feature p {
+      color: #352d26;
+      font-size: 14px;
+    }
+
+    .mini-list {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: #352d26;
+      font-size: 14px;
+    }
+
+    .debate {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--rule);
+      margin-bottom: 34px;
+    }
+
+    .debate > div {
+      padding: 22px;
+    }
+
+    .debate .yes {
+      background: #edf7ef;
+      border-right: 1px solid var(--rule);
+    }
+
+    .debate .no {
+      background: #fff0ed;
+    }
+
+    .debate ul,
+    .actions ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .actions {
+      background: var(--gold);
+      color: #fff;
+      padding: 26px 30px;
+      margin-bottom: 34px;
+    }
+
+    .actions h2 {
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.45);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .actions li {
+      margin: 8px 0;
+    }
+
+    .sources {
+      border-top: 4px double var(--ink);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .sources ol {
+      columns: 2;
+      column-gap: 28px;
+      padding-left: 20px;
+    }
+
+    .sources li {
+      break-inside: avoid;
+      margin-bottom: 8px;
+    }
+
+    .source-note {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 840px) {
+      .dateline,
+      .feature,
+      .grid,
+      .grid.three,
+      .debate {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .feature-main,
+      .debate .yes {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .sources ol {
+        columns: 1;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="kicker">AI Monthly Intelligence · Worker Edition</div>
+      <h1>入口之战 <span>开始了</span></h1>
+      <div class="subtitle">2026-04-27 至 2026-05-27 · 面向普通知识工作者 · 系统入口、数据入口、成本入口同时开战</div>
+    </header>
+
+    <div class="dateline">
+      <span>发布于 2026-05-27</span>
+      <span>覆盖：AI 产品 · 工作流 · 市场调研 · 营销 · 设计 · 生活数据 · 风险</span>
+    </div>
+
+    <section class="lead">
+      <p>这个月最值得记住的，不是某个模型又聪明了多少，而是 AI 正在争夺三个入口：电脑和手机的系统入口、个人与企业的数据入口、以及能让 agent 长时间运行的成本入口。</p>
+      <p>如果说 2025 年的关键词是“把 AI 放进聊天框”，那么 2026 年 5 月的关键词是“把聊天框拆掉”：AI 开始进入表格、浏览器、搜索、操作系统、合同系统、金融账户、调研平台和设计画布。</p>
+    </section>
+
+    <section class="stats" aria-label="key stats">
+      <div class="stat"><strong>100T</strong><span>小米 MiMo Orbit 免费 Token 计划已在 5月26日提前发完</span></div>
+      <div class="stat"><strong>10M/日</strong><span>腾讯 Marvis 媒体披露的个人每日免费 Token 额度</span></div>
+      <div class="stat"><strong>12,000+</strong><span>ChatGPT 金融预览支持连接的美国金融机构数量</span></div>
+      <div class="stat"><strong>69%</strong><span>UserTesting：零售 AI 体验上线后仍需重大修改的团队比例</span></div>
+      <div class="stat"><strong>11%</strong><span>Gartner：愿意让 AI 直接替自己做购买决定的美国消费者比例上限</span></div>
+    </section>
+
+    <div class="section-label"><div class="label">Headline</div><div class="line"></div></div>
+    <h2>头条判断：AI 正在从“应用功能”变成“个人操作层”</h2>
+    <p class="deck">Marvis、Google Gemini、ChatGPT、GitHub Copilot 和 Figma 的共同方向，是让 AI 不再只生成内容，而是读取上下文、调用工具、操控界面、回写结果。</p>
+    <section class="feature">
+      <div class="feature-main">
+        <div class="tag">System Entry · Confirmed</div>
+        <h3>Marvis 是本月最值得普通人关注的中文 AI 产品</h3>
+        <p>腾讯 Marvis 于 5月20日上线，官网显示支持 Windows、macOS、Android，iOS 预计 6月中旬上线；它强调本地模式文件 0 上传、手机操控电脑、文件智能整理搜索、一句话改系统设置，以及文档、表格等本地文件理解。</p>
+        <p>它的重点不是“又一个聊天助手”，而是把 AI 放到系统层：文件、图片、系统设置、浏览器、App 和手机远程接管被放进同一套个人工作台。对普通打工人，这比单个 SaaS 插件更接近日常：找发票、整理素材、查电脑配置、修网络、做运营数据初步分析，都是本地桌面任务。</p>
+        <div class="verdict">反思：系统级 AI 的突破也带来系统级风险。它越能操作电脑，越需要权限边界、任务确认、本地/云端模式透明度和可回放日志。Fun fact：Marvis 官网把追星、游戏、机票监控、求职资料、宝宝相册都列成场景，这比传统“办公助手”更像一个个人生活操作系统。</div>
+      </div>
+      <aside class="feature-side">
+        <div class="tag">Related Signals</div>
+        <p><strong>Google I/O：</strong>Google 官方把 Gemini Spark、Search information agents、Universal Cart、Ask YouTube、Antigravity 和 Workspace 放在同一个“agentic Gemini era”叙事里。</p>
+        <p><strong>OpenAI：</strong>ChatGPT 进入 Excel/Google Sheets，并推出 memory sources，让个性化上下文可见；这意味着办公数据和个人记忆开始变成可管理资产。</p>
+        <p><strong>GitHub/Figma：</strong>skills、MCP、write to canvas、浏览器/终端上下文说明：AI 的新工作单元不再是 prompt，而是“可复用流程 + 工具权限 + 上下文”。</p>
+      </aside>
+    </section>
+
+    <div class="section-label"><div class="label">Cost</div><div class="line"></div></div>
+    <h2>成本入口：便宜到能跑长任务，agent 才会真正日常化</h2>
+    <p class="deck">过去一个月，成本变化比模型榜单更重要。agent 要做调研、监控、编程、数据清洗和多轮工具调用，烧掉的是长上下文、缓存、重试和工具回合。</p>
+    <section class="grid">
+      <article class="card gold">
+        <div class="tag">Cost War · Confirmed</div>
+        <span class="confidence">官方公告</span>
+        <h3>小米 MiMo：免费 Token 派发结束，永久降价开始</h3>
+        <p>MiMo 官方公告称，4月28日启动的 100T Token 创作者激励计划已于北京时间 5月26日 16:08 全部发放完毕；5月27日 0点起 MiMo-V2.5 系列 API 永久调价，最高降幅 99%，Token Plan 用量提升 5-8 倍并重置有效期内用户额度。</p>
+        <p><strong>为什么有趣：</strong>这不是单纯福利，而是“推理成本战”。当模型调用便宜到可以反复试错，小团队才会把 AI 从写作工具升级为常驻 agent。</p>
+        <p><strong>怀疑点：</strong>免费额度不等于真实成本低。关键要看缓存计费、长上下文退化、限速、稳定性和可迁移性。</p>
+      </article>
+      <article class="card blue">
+        <div class="tag">Agent Economics · Confirmed</div>
+        <span class="confidence">官方/社区混合</span>
+        <h3>Google 和 GitHub 也在降“隐形成本”</h3>
+        <p>GitHub Copilot 的 5月更新强调 prompt caching、deferred tool loading、purpose-built agentic tools，以减少 token 使用；Google I/O 则把 Antigravity、managed agents、AI Studio、Search mini apps 串成“从想法到可运行”的链路。</p>
+        <p><strong>举一反三：</strong>以后判断一个 AI 工具，不能只问模型多强，还要问：长任务是否可暂停、是否能复用上下文、失败能否回放、缓存是否便宜、能否接入自己的工具。</p>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Workflows</div><div class="line"></div></div>
+    <h2>工作流：调研、营销、设计从“做报告”变成“运行系统”</h2>
+    <p class="deck">本月的工作场景变化集中在一个方向：AI 不再只是帮你生成某个交付物，而是嵌入流程，持续读取数据、生成动作、保留审计和回写系统。</p>
+    <section class="grid">
+      <article class="card">
+        <div class="tag">Market Research · Confirmed</div>
+        <span class="confidence">官方/报告</span>
+        <h3>市场调研：从项目制变成决策引擎</h3>
+        <p>Qualtrics 在 5月11日提出 agentic market research：agent 根据业务问题制定研究计划、连接合成样本与人类样本、输出面向决策的结果。SurveyMonkey 5月更新则把 AI 问卷创建、Programs 趋势追踪和品牌样式放进同一套产品更新。</p>
+        <p><strong>真正变化：</strong>调研工具正在从“问卷平台”变成“持续反馈系统”。市场/产品人以后更像研究系统管理员：定义问题、审查样本、校验结论、推动决策。</p>
+        <p><strong>怀疑点：</strong>合成样本适合预研和压力测试，不适合替代真实用户证据。</p>
+      </article>
+
+      <article class="card gold">
+        <div class="tag">Marketing · Confirmed</div>
+        <span class="confidence">官方/企业</span>
+        <h3>营销：品牌规范开始变成“活的系统”</h3>
+        <p>Adobe Summit 期间推出 CX Enterprise，并强调 AI agents、agent skills、MCP endpoints、Brand Intelligence、Proactive Insights、Root Cause Analysis。Adobe 的方向不是多生成几张图，而是让品牌、数据、客户旅程和内容供应链可被 agent 编排。</p>
+        <p><strong>新业务形态：</strong>小型营销团队可能会从“内容工厂”转向“实验工厂”：agent 生成素材、监控表现、解释异常，人类负责品牌判断和实验策略。</p>
+        <p><strong>怀疑点：</strong>如果客户数据不干净、品牌资产混乱，agent 只会把混乱规模化。</p>
+      </article>
+
+      <article class="card green">
+        <div class="tag">Product Design · Confirmed</div>
+        <span class="confidence">官方文档</span>
+        <h3>产品设计：Figma 画布和代码边界继续变薄</h3>
+        <p>Figma 5月 release notes 解释了 agents、MCP、skills、write to canvas，并展示从代码到画布、从画布到代码的工作流。Anthropic 的 Claude Design 也强调设计系统、交互原型、PPT/Canva/HTML 导出和 Claude Code 交接。</p>
+        <p><strong>为什么重要：</strong>设计师未来的护城河不是手工画每个界面，而是维护设计系统语义、交互状态、可访问性、组件约束和真实用户反馈闭环。</p>
+        <p><strong>Fun fact：</strong>Claude Design 官方案例称，某些复杂交互原型从过去 20+ prompts 降到 2 prompts，但这依然是供应商案例，不是普遍保证。</p>
+      </article>
+
+      <article class="card blue">
+        <div class="tag">Developer Work · Confirmed</div>
+        <span class="confidence">官方更新</span>
+        <h3>GitHub Copilot：skill 变成软件工程的新资产</h3>
+        <p>GitHub Copilot 5月更新支持用自然语言生成 custom agents、skills 和 instructions；agent 可读写已打开终端、共享浏览器标签、远程监控 CLI 会话；GitHub MCP secret scanning 也在 5月 GA。</p>
+        <p><strong>举一反三：</strong>这套模式会从工程扩散到用户研究、销售、财务、法务和运营。团队 SOP 会从文档变成“可被 agent 执行的文档”。</p>
+        <p><strong>怀疑点：</strong>skill 越像软件，越需要版本管理、权限审查和测试，而不是随便从网上安装。</p>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Life & Data</div><div class="line"></div></div>
+    <h2>生活场景：个人数据正在成为 AI 的下一个燃料层</h2>
+    <p class="deck">这里不只看游戏和阅读。真正的趋势是：金融、购物、日程、浏览、健康、学习、家庭协作等个人数据正在逐步变成 AI 可查询、可解释、可行动的上下文。</p>
+    <section class="grid three">
+      <article class="card">
+        <div class="tag">Personal Finance · Confirmed</div>
+        <span class="confidence">圈外信号</span>
+        <h3>ChatGPT 金融预览：个人账本变成对话对象</h3>
+        <p>OpenAI 5月15日发布美国 Pro 用户个人金融预览：可通过 Plaid 连接金融账户，支持 12,000+ 金融机构，生成收支、订阅、投资风险、目标规划等视图；OpenAI 明确提示它不是专业理财顾问。</p>
+        <p><strong>为什么有趣：</strong>这比“AI 帮你做预算”更深，因为它把账户、目标、记忆和对话放进同一上下文。未来“消费记录 skill”“税务准备 skill”“保险条款 skill”都会沿这个方向出现。</p>
+      </article>
+
+      <article class="card gold">
+        <div class="tag">Shopping · Confirmed</div>
+        <span class="confidence">圈外信号</span>
+        <h3>购物 AI 的边界：帮我比较，不要替我决定</h3>
+        <p>Google I/O 推出 Search information agents、Universal Cart 和 agentic booking，试图让 AI 帮人监控信息、比价、订服务。Gartner 5月27日调查提醒：消费者愿意让 AI 缩小选择，但愿意让 AI 直接替自己下购买决定的比例上限只有 11%。</p>
+        <p><strong>产品启发：</strong>AI 购物助手短期更像“研究员”和“比价员”，不是“采购员”。设计重点应该是透明来源、可解释比较、保留最终选择权。</p>
+      </article>
+
+      <article class="card green">
+        <div class="tag">Local Services · Confirmed</div>
+        <span class="confidence">官方公告</span>
+        <h3>Search agents 会先重塑本地生活，而不是科幻任务</h3>
+        <p>Google Search 5月19日宣布信息 agent 可 24/7 监控网页、新闻、社交、金融、购物、体育等变化；还扩展预订能力到本地体验和服务，并计划让 AI 代表用户致电部分商家。</p>
+        <p><strong>举一反三：</strong>找房、办签证、看病预约、孩子课程、宠物护理、搬家、维修，这些低频但麻烦的生活流程，可能比“全自动购物”更先被 agent 改造。</p>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Beyond Bubble</div><div class="line"></div></div>
+    <h2>反信息茧房：这个月还有三条“不在你原问题里”但值得看</h2>
+    <p class="deck">这些不是 Steam、微信读书、GitHub skill 的延伸，但更能说明 AI 业务形态正在进入低调、复杂、刚需的工作流。</p>
+    <section class="grid">
+      <article class="card rose">
+        <div class="tag">Legal Ops · Confirmed</div>
+        <span class="confidence">圈外信号</span>
+        <h3>法务入口：合同从静态 PDF 变成行动系统</h3>
+        <p>Docusign 5月11日宣布 agentic contract workflows，强调合同 assistant 和 agents 可基于历史谈判、已接受条款和公司政策推动协议流程；Checkbox 同日发布 AI Legal Front Door，能从业务请求中创建结构化 legal matter、启动 workflow，并让律师修正 AI 回答后沉淀为团队知识。</p>
+        <p><strong>为什么普通人也该看：</strong>这说明 agent 最先吃掉的不是“炫酷创意”，而是每家公司都有的 intake、triage、status update、approval 这些脏活。</p>
+      </article>
+
+      <article class="card blue">
+        <div class="tag">Education · Media/Survey</div>
+        <span class="confidence">圈外信号</span>
+        <h3>教育 AI 的真实瓶颈不是工具少，而是教师没得到制度支持</h3>
+        <p>Axios 5月27日基于 Gallup/Walton Family Foundation 报告指出，约八成美国 K-12 教师没有获得正式 AI 应用指导；在教学反馈、个性化辅导、学习模式分析等方面，缺口更明显。</p>
+        <p><strong>反直觉：</strong>AI 教育工具越多，教师越需要筛选、规范和培训，而不是再多一个“万能老师助手”。这是所有组织采用 AI 的共同问题：工具扩张快于治理能力。</p>
+      </article>
+
+      <article class="card green">
+        <div class="tag">Retail Trust · Confirmed</div>
+        <span class="confidence">报告数据</span>
+        <h3>零售 AI：上线不是终点，返工才是常态</h3>
+        <p>UserTesting 2026 零售 AI 体验报告显示，69% 的零售 CX 团队表示至少一半 AI-powered digital experiences 上线后需要重大修改；同时，测试在流程后期下降，早期概念验证多，UX flow 验证少。</p>
+        <p><strong>产品启发：</strong>AI 功能不能只测“模型答得出来吗”，还要测用户是否信、是否省事、是否能回到人工帮助、是否因为 AI 增加验证负担。</p>
+      </article>
+
+      <article class="card gold">
+        <div class="tag">Security · Research</div>
+        <span class="confidence">研究/官方指南</span>
+        <h3>skill 和 MCP 生态进入供应链风险期</h3>
+        <p>5月 arXiv 论文指出，SKILL.md 这类自然语言说明会影响 agent 发现、选择和加载能力；另一篇论文展示了“无显式恶意代码”的 payload-less skill 攻击。NSA 5月发布 MCP 安全设计考虑，强调动态工具调用、隐式信任、上下文共享和工具输出级联风险。</p>
+        <p><strong>结论：</strong>以后安装一个 skill 或 MCP server，风险更接近安装浏览器插件或 npm 包，而不是复制一段提示词。</p>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Theses</div><div class="line"></div></div>
+    <h2>本月趋势判断</h2>
+    <p class="deck">把事件放在一起看，真正的变化不是工具数量增加，而是 AI 工作形态从“问答”转向“可运行的上下文系统”。</p>
+    <section class="grid">
+      <article class="card">
+        <h3>1. 系统入口比单点应用更关键</h3>
+        <p>Marvis、Gemini Spark、Search agents、ChatGPT 桌面/Codex、浏览器 agents 都在抢同一件事：谁能稳定看到你的文件、网页、应用和任务状态，谁就能成为个人工作流的默认层。</p>
+      </article>
+      <article class="card gold">
+        <h3>2. 成本战决定 agent 能否常驻</h3>
+        <p>MiMo 的 100T 激励和 99% 降价、GitHub 的 token 优化、Google 的 subscription 分层，都在解决一个问题：长任务和后台监控如果太贵，agent 就只是演示。</p>
+      </article>
+      <article class="card green">
+        <h3>3. 数据入口正在从企业扩展到个人</h3>
+        <p>表格、金融账户、合同、购物、搜索监控、文件、设计画布、阅读笔记和游戏库，本质都是“可被 AI 读取和解释的数据域”。未来新产品会围绕这些数据域长出 skill 和 agent。</p>
+      </article>
+      <article class="card blue">
+        <h3>4. “AI 原生业务”往往先出现在无聊流程里</h3>
+        <p>合同 intake、状态更新、问卷趋势追踪、文件整理、发票归档、价格监控、审批流，比生成炫酷视频更能稳定创造价值。</p>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Debate</div><div class="line"></div></div>
+    <h2>这些进展真是突破吗？</h2>
+    <p class="deck">本月的正确姿势不是乐观或悲观，而是区分“入口级变化”和“Demo 级变化”。</p>
+    <section class="debate">
+      <div class="yes">
+        <h3>真实进展</h3>
+        <ul>
+          <li>AI 进入系统、表格、搜索、合同、金融账户和设计画布，说明上下文边界正在扩大。</li>
+          <li>MiMo 降价和 token 计划结束说明推理成本已经成为产品竞争核心，不再只是实验室指标。</li>
+          <li>Market research、legal ops、marketing ops、retail CX 的 agent 化，证明 AI 正在进入决策和运营流程。</li>
+          <li>Memory sources、admin control center、MCP security guidance 说明平台开始承认：可控性和审计是 adoption 的前提。</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>仍需怀疑</h3>
+        <ul>
+          <li>很多 agent 能力仍有地区、订阅、企业权限或 waitlist 限制，普通人未必马上可用。</li>
+          <li>系统级助手需要高权限，权限不清就可能从“省时间”变成“放大错误”。</li>
+          <li>合成样本、AI persona、自动购物和自动合同处理都需要明确的人类验收边界。</li>
+          <li>skill/MCP 生态的安全风险正在暴露，未来不能把第三方 skill 当普通提示词安装。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="actions">
+      <h2>下个月你可以做的 7 件事</h2>
+      <ul>
+        <li>把自己的工作拆成三层：数据源、判断标准、可执行动作。凡是三层都明确的任务，才适合 agent 化。</li>
+        <li>试用一个系统级助手或桌面 agent，但先从只读任务开始：文件搜索、发票归类、资料整理、网页监控。</li>
+        <li>做一次“个人数据地图”：金融、订阅、阅读、游戏、健康、旅行、购物、日历，标出哪些能导出、哪些有 API、哪些绝不能接 AI。</li>
+        <li>如果你做市场调研，建立 AI 研究验收表：样本量、样本来源、合成/真实样本区分、开放题证据、不可推广范围。</li>
+        <li>如果你做营销，停止只评估“文案生成速度”，开始评估品牌一致性、素材实验设计、渠道反馈闭环和 AI 搜索中的品牌可见性。</li>
+        <li>如果你管理团队，要求所有 skill/MCP/connector 有来源、权限说明、版本号、可删除路径和最小权限策略。</li>
+        <li>每周保留一个“圈外观察”：教育、法律、医疗运营、财务、物流、本地生活里发生的 AI 变化，往往比热门工具更早暴露真实商业模式。</li>
+      </ul>
+    </section>
+
+    <footer class="sources">
+      <p class="source-note">Sources and confidence notes: facts use official/docs/research sources where possible; media/community signals are labeled as context, not sole proof.</p>
+      <ol>
+        <li><a href="https://marvis.qq.com/">腾讯 Marvis 官网</a></li>
+        <li><a href="https://finance.sina.com.cn/jjxw/2026-05-21/doc-inhyrvzm6386190.shtml">新浪财经：中国经营报关于 Marvis 上线报道</a></li>
+        <li><a href="https://platform.xiaomimimo.com/docs/en-US/news/v2.5-price-update">Xiaomi MiMo 官方：V2.5 价格调整与 100T 计划结束</a></li>
+        <li><a href="https://blog.google/innovation-and-ai/technology/developers-tools/google-io-2026-collection/">Google I/O 2026 官方公告合集</a></li>
+        <li><a href="https://blog.google/products-and-platforms/products/search/search-io-2026/">Google Search I/O 2026 updates</a></li>
+        <li><a href="https://developers.googleblog.com/all-the-news-from-the-google-io-2026-developer-keynote/">Google Developers Blog: I/O 2026 developer keynote</a></li>
+        <li><a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">OpenAI Help: ChatGPT release notes</a></li>
+        <li><a href="https://openai.com/index/personal-finance-chatgpt/">OpenAI: A new personal finance experience in ChatGPT</a></li>
+        <li><a href="https://help.openai.com/en/articles/10128477">OpenAI Help: ChatGPT Enterprise & Edu release notes</a></li>
+        <li><a href="https://github.blog/changelog/2026-05-06-github-copilot-in-visual-studio-code-april-releases">GitHub Changelog: Copilot in VS Code April releases</a></li>
+        <li><a href="https://github.blog/changelog/2026-05-05-secret-scanning-with-github-mcp-server-is-now-generally-available/">GitHub Changelog: Secret scanning with GitHub MCP Server GA</a></li>
+        <li><a href="https://help.figma.com/hc/en-us/articles/40219873508247-Release-notes-roundup-May-2026">Figma Learn: May 2026 release notes roundup</a></li>
+        <li><a href="https://www.anthropic.com/news/claude-for-creative-work">Anthropic: Claude for Creative Work</a></li>
+        <li><a href="https://www.anthropic.com/news/claude-design-anthropic-labs">Anthropic: Claude Design by Anthropic Labs</a></li>
+        <li><a href="https://www.qualtrics.com/articles/strategy-research/agentic-ai-market-research/">Qualtrics: Agentic AI and market research</a></li>
+        <li><a href="https://www.surveymonkey.com/resources/whats-new-programs-customization/">SurveyMonkey: May 2026 product highlights</a></li>
+        <li><a href="https://www.usertesting.com/resources/reports/state-of-ai-in-retail-experiences-report">UserTesting: 2026 State of AI in Retail Experiences</a></li>
+        <li><a href="https://research.adobe.com/news/adobe-research-at-summit-2026-agentic-ai-for-orchestrating-customer-experiences/">Adobe Research: Agentic AI for customer experiences</a></li>
+        <li><a href="https://www.docusign.com/company/news-center/docusign-announces-agentic-contract-workflows-for-inhouse-legal-teams">Docusign: Agentic contract workflows</a></li>
+        <li><a href="https://www.prnewswire.com/news-releases/checkbox-expands-ai-legal-front-door-with-new-capabilities-for-workflow-automation-institutional-knowledge-capture-and-cycle-time-reporting-302767399.html">Checkbox: AI Legal Front Door capabilities</a></li>
+        <li><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-27-gartner-survey-finds-consumers-want-ai-shopping-help-but-not-ai-purchase-decisions">Gartner: consumers want AI shopping help, not AI purchase decisions</a></li>
+        <li><a href="https://www.axios.com/2026/05/27/ai-education-teacher-guidance-polling">Axios: AI education guidance gap</a></li>
+        <li><a href="https://arxiv.org/abs/2605.11418">arXiv: Semantic supply-chain attacks on AI agent skill registry</a></li>
+        <li><a href="https://arxiv.org/abs/2605.14460">arXiv: Payload-less skill supply-chain attacks</a></li>
+        <li><a href="https://www.nsa.gov/Portals/75/documents/Cybersecurity/CSI_MCP_SECURITY.pdf?ver=bmgiSbNQLP6Z_GiWtRt6bg%3D%3D">NSA: Model Context Protocol security design considerations</a></li>
+      </ol>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>黄仁勋 2026-06-01 GTC Taipei 芯片发布会报告</title>
+  <style>
+    :root {
+      --bg: #f6f7f3;
+      --paper: #ffffff;
+      --ink: #182019;
+      --muted: #5c665f;
+      --line: #dfe5d8;
+      --green: #76b900;
+      --green-dark: #3f6f07;
+      --blue: #1c6b8c;
+      --amber: #a26721;
+      --rose: #9b3d50;
+      --soft-green: #eaf4d8;
+      --soft-blue: #e4f0f4;
+      --soft-amber: #f7eddc;
+      --soft-rose: #f5e6ea;
+      --shadow: 0 16px 40px rgba(24, 32, 25, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--green-dark);
+      text-decoration-color: rgba(63, 111, 7, 0.35);
+      text-underline-offset: 3px;
+    }
+
+    .page {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+      padding: 28px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker {
+      color: var(--green-dark);
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.04;
+      margin: 10px 0 18px;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .hero-note {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display: grid;
+      align-content: space-between;
+      min-height: 280px;
+    }
+
+    .hero-note strong {
+      font-size: 17px;
+    }
+
+    .answer {
+      font-size: 20px;
+      line-height: 1.55;
+      border-left: 5px solid var(--green);
+      padding-left: 18px;
+      margin: 18px 0 0;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 26px 0;
+    }
+
+    .stat {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 18px;
+      min-height: 132px;
+    }
+
+    .stat .num {
+      display: block;
+      font-size: 34px;
+      line-height: 1.1;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+
+    .stat .label {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      margin-top: 34px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.65fr 1fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 1.18;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    .deck {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .feature {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 0.95fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .feature h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .quote-strip {
+      border-left: 4px solid var(--green);
+      padding: 10px 0 10px 16px;
+      margin: 16px 0;
+      color: #253022;
+      background: linear-gradient(90deg, rgba(118, 185, 0, 0.08), transparent);
+    }
+
+    .quote-strip q {
+      font-weight: 700;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .chip-visual {
+      border: 1px solid #c9d7c0;
+      background: #fbfcf8;
+      padding: 18px;
+    }
+
+    .chip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .chip-block {
+      min-height: 92px;
+      border: 1px solid #b7c7ad;
+      padding: 12px;
+      background: var(--soft-green);
+    }
+
+    .chip-block:nth-child(2) {
+      background: var(--soft-blue);
+    }
+
+    .chip-block:nth-child(3) {
+      background: var(--soft-amber);
+    }
+
+    .chip-block:nth-child(4) {
+      background: var(--soft-rose);
+    }
+
+    .chip-block b {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .chip-block span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .arrow-row {
+      display: grid;
+      grid-template-columns: 1fr 48px 1fr;
+      gap: 12px;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .mini-box {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 12px;
+      min-height: 120px;
+    }
+
+    .mini-box h4,
+    .card h3,
+    .compact h3 {
+      margin: 0 0 8px;
+      line-height: 1.25;
+    }
+
+    .arrow {
+      text-align: center;
+      color: var(--green-dark);
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 18px;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card h3 {
+      font-size: 19px;
+    }
+
+    .card p,
+    .compact p,
+    li {
+      color: #334036;
+    }
+
+    .tagline {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--green-dark);
+      background: var(--soft-green);
+      padding: 4px 8px;
+      margin-bottom: 10px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .product-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 220px;
+      gap: 14px;
+      align-items: start;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 14px;
+    }
+
+    .product-row b {
+      color: var(--ink);
+    }
+
+    .product-row small {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .explain {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .compact {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 18px;
+    }
+
+    .compact h3 {
+      font-size: 18px;
+    }
+
+    .debate {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .debate .compact:first-child {
+      border-top: 5px solid var(--green);
+    }
+
+    .debate .compact:last-child {
+      border-top: 5px solid var(--rose);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .read-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .read-link {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 16px;
+    }
+
+    .read-link b {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .footer-note {
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      .masthead,
+      .feature,
+      .section-head,
+      .explain,
+      .debate {
+        grid-template-columns: 1fr;
+      }
+
+      .stats,
+      .grid,
+      .read-links,
+      .source-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .product-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: min(100% - 20px, 1160px);
+        padding-top: 10px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .stats,
+      .grid,
+      .read-links,
+      .source-grid,
+      .chip-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow-row {
+        grid-template-columns: 1fr;
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <div class="kicker">NVIDIA GTC Taipei 2026 / COMPUTEX</div>
+        <h1>黄仁勋 6.1 发布会：真正发布的不是“一颗神芯”，而是一套 Agent 计算版图</h1>
+        <p class="subtitle">核验日期：2026-06-02。这里的“6.1”指 2026 年 6 月 1 日台北时间的 NVIDIA GTC Taipei 2026 主题演讲；部分官方新闻稿显示为 5 月 31 日，是美国时区差异。</p>
+        <div class="meta-row">
+          <span class="pill">主题：Agentic AI</span>
+          <span class="pill">入口：AI PC</span>
+          <span class="pill">底座：AI Factory</span>
+          <span class="pill">延伸：Physical AI</span>
+        </div>
+      </div>
+      <aside class="hero-note">
+        <div>
+          <strong>一句话结论</strong>
+          <p class="answer">有“划时代”的潜力，但不是因为单颗芯片魔法般替代了 CPU、显卡和内存；真正变化是 NVIDIA 把 CPU、GPU、统一内存、模型、Agent 运行时、安全沙箱和数据中心运维，压成同一种计算模式：云端、桌边、个人电脑和机器人都跑 Agent。</p>
+        </div>
+        <p class="source">关键官方入口：<a href="https://www.nvidia.com/en-tw/gtc/taipei/keynote/" target="_blank" rel="noreferrer">NVIDIA GTC Taipei 2026 Keynote Replay</a>；官方滚动 recap：<a href="https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/" target="_blank" rel="noreferrer">NVIDIA Blog</a>。</p>
+      </aside>
+    </header>
+
+    <section class="stats" aria-label="关键数字">
+      <div class="stat">
+        <span class="num">1 PFLOP</span>
+        <span class="label">RTX Spark 宣称的 FP4 AI 性能，用于本地 Agent、创作和游戏。</span>
+      </div>
+      <div class="stat">
+        <span class="num">128GB</span>
+        <span class="label">RTX Spark / Surface Laptop Ultra 可配置统一内存，CPU 与 GPU 共享同一内存池。</span>
+      </div>
+      <div class="stat">
+        <span class="num">10x</span>
+        <span class="label">Vera Rubin 对比 Grace Blackwell 的 Agent 吞吐量级说法，面向 AI 工厂。</span>
+      </div>
+      <div class="stat">
+        <span class="num">1T</span>
+        <span class="label">DGX Station for Windows 目标是在桌边本地运行最高 1 万亿参数级模型。</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>发布了什么</h2>
+        <p class="deck">发布会横跨芯片、系统、网络、存储、安全、模型、Agent 软件和机器人。按“对普通互联网人最相关”排序如下。</p>
+      </div>
+
+      <div class="product-list">
+        <div class="product-row">
+          <div>
+            <b>RTX Spark Superchip</b>
+            <small>AI PC / Windows on Arm</small>
+          </div>
+          <div>一颗面向 Windows 笔记本和小型桌面的超级芯片：Blackwell RTX GPU、20 核 Grace CPU、NVLink-C2C、最高 128GB 统一内存。目标是让本地 Agent、120B 级 LLM、12K 视频和大型 3D 工作流在 PC 上跑起来。</div>
+          <small><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank" rel="noreferrer">NVIDIA 新闻稿</a> / <a href="https://www.nvidia.com/en-us/products/rtx-spark/" target="_blank" rel="noreferrer">产品页</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>Surface Laptop Ultra 等 AI PC</b>
+            <small>微软与 PC 厂商首批落地</small>
+          </div>
+          <div>微软、ASUS、Dell、HP、Lenovo、MSI 等将推出 RTX Spark 设备。微软称 Surface Laptop Ultra 是其首款 Blackwell RTX GPU + 128GB 统一内存 + CUDA 支持的 Surface Laptop。</div>
+          <small><a href="https://blogs.windows.com/devices/2026/05/31/introducing-surface-laptop-ultra-made-for-world-makers/" target="_blank" rel="noreferrer">Microsoft 官方博客</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>DGX Station for Windows</b>
+            <small>桌边 AI 超算</small>
+          </div>
+          <div>基于 GB300 Grace Blackwell Ultra Desktop Superchip，72 核 Grace CPU、最高 748GB coherent memory、最高 20 PFLOPS FP4，用于企业开发、运行和连接 Windows 工作流中的常驻 Agent。</div>
+          <small><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-DGX-Station-for-Windows-Puts-a-Trillion-Parameter-AI-Supercomputer-on-Every-Enterprise-Desk/default.aspx" target="_blank" rel="noreferrer">NVIDIA 新闻稿</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>Vera CPU</b>
+            <small>专为 Agent 的数据中心 CPU</small>
+          </div>
+          <div>88 个自研 Olympus 核心、LPDDR5X 内存子系统、最高 1.2TB/s 带宽。NVIDIA 把它定义为给 Agent 工作负载使用的 CPU，而不只是给人类交互型应用使用。</div>
+          <small><a href="https://nvidianews.nvidia.com/news/nvidia-unveils-vera-the-cpu-for-agents" target="_blank" rel="noreferrer">NVIDIA Newsroom</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>Vera Rubin 平台</b>
+            <small>AI 工厂五机架平台</small>
+          </div>
+          <div>Vera Rubin NVL72、Vera CPU、BlueField-4 STX、Spectrum-X Ethernet Photonics 等组成面向 Agent 推理的整套平台，官方称已 ramp into full production，生产出货从今年秋季开始。</div>
+          <small><a href="https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory" target="_blank" rel="noreferrer">NVIDIA Newsroom</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>DSX 平台</b>
+            <small>AI 工厂设计、仿真、运维</small>
+          </div>
+          <div>不是单一芯片，而是 AI 工厂的“行动指南”：参考设计、开放模块软件、API、仿真、运维和合作伙伴技术，用来降低 token 成本、加速部署。</div>
+          <small><a href="https://nvidianews.nvidia.com/news/nvidia-dsx-gives-infrastructure-builders-the-playbook-for-ai-factories" target="_blank" rel="noreferrer">NVIDIA Newsroom</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>Agent Toolkit / OpenShell / Nemotron 3 Ultra</b>
+            <small>Agent 软件栈与开放模型</small>
+          </div>
+          <div>Agent Toolkit 包括 NemoClaw 蓝图、Nemotron 模型、OpenShell 安全运行时和 CUDA-X agent skills。Nemotron 3 Ultra 是 550B MoE 模型，官方称推理最高快 5 倍、复杂 Agent 任务成本最多低 30%。</div>
+          <small><a href="https://nvidianews.nvidia.com/news/enterprise-software-leaders-build-ai-agents-with-nvidia" target="_blank" rel="noreferrer">NVIDIA Newsroom</a></small>
+        </div>
+        <div class="product-row">
+          <div>
+            <b>Cosmos 3 / Alpamayo 2 Super / Isaac GR00T</b>
+            <small>物理 AI、自动驾驶、机器人</small>
+          </div>
+          <div>Cosmos 3 是开放世界基础模型；Alpamayo 2 Super 是 32B 自动驾驶 reasoning VLA 模型；Isaac GR00T Reference Humanoid Robot 把 Unitree H2 Plus、Sharpa 手、Jetson Thor 和 GR00T 软件栈做成开放参考设计。</div>
+          <small><a href="https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai" target="_blank" rel="noreferrer">Cosmos 3</a> / <a href="https://nvidianews.nvidia.com/news/nvidia-alpamayo-2-super-robotaxis" target="_blank" rel="noreferrer">Alpamayo</a> / <a href="https://nvidianews.nvidia.com/news/nvidia-open-humanoid-robot-reference-design" target="_blank" rel="noreferrer">GR00T</a></small>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>原文短摘</h2>
+        <p class="deck">以下只摘关键短句，旁边给出我的解读。完整上下文建议看官方 keynote 和新闻稿。</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div>
+            <span class="tagline">AI PC</span>
+            <h3>PC 的交互入口改变</h3>
+            <div class="quote-strip"><q>The PC is being reinvented.</q></div>
+            <p>黄仁勋的核心叙事是：过去 40 年你打开应用、点击、输入；Agent PC 时代你提出目标，PC 帮你调用应用、文件、网页和模型完成任务。</p>
+          </div>
+          <p class="source">来源：<a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank" rel="noreferrer">NVIDIA RTX Spark 新闻稿</a></p>
+        </article>
+        <article class="card">
+          <div>
+            <span class="tagline">Agent CPU</span>
+            <h3>CPU 重新变成 AI 基础设施焦点</h3>
+            <div class="quote-strip"><q>AI agents will be the largest users of computing.</q></div>
+            <p>这解释了 Vera CPU 的定位：Agent 不只是要 GPU 生成 token，还要不断检索、调用工具、跑代码、读写数据，这些步骤会把 CPU、内存和网络重新推到中心。</p>
+          </div>
+          <p class="source">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-unveils-vera-the-cpu-for-agents" target="_blank" rel="noreferrer">Vera CPU 新闻稿</a></p>
+        </article>
+        <article class="card">
+          <div>
+            <span class="tagline">AI Factory</span>
+            <h3>卖芯片变成卖“工厂方案”</h3>
+            <div class="quote-strip"><q>not just shipping chips</q></div>
+            <p>DSX 的意义在这里：NVIDIA 想控制从机架、电力、冷却、网络、安全到仿真的全链路，因为大模型 Agent 的成本核心会变成每瓦生成多少 token。</p>
+          </div>
+          <p class="source">来源：<a href="https://nvidianews.nvidia.com/news/nvidia-dsx-gives-infrastructure-builders-the-playbook-for-ai-factories" target="_blank" rel="noreferrer">DSX 新闻稿</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>“一颗芯片替代 CPU、显卡、内存”到底是什么意思</h2>
+        <p class="deck">更准确地说：不是消灭这些部件，而是把 CPU、GPU 和一大块统一内存放进同一个平台，让 AI 工作流少搬数据、少等总线、少受显存墙限制。</p>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>普通互联网人版解释</h3>
+          <p>传统高性能 PC 像一个办公室：CPU 是项目经理，GPU 是能同时做大量计算的团队，系统内存和显存是两个仓库。问题是 AI 模型很大，项目经理和计算团队经常要在两个仓库之间搬资料，搬运通道又有限。</p>
+          <p>RTX Spark 的做法更像把项目经理、计算团队和共享仓库搬进同一栋楼。CPU 和 GPU 通过高速内部连接协作，并共享最高 128GB 统一内存。大模型、长上下文、图片视频中间结果可以放在同一个内存池里，GPU 可以直接处理更大的本地任务。</p>
+          <p>所以社媒说的“替代”应理解为“集成 + 共享内存池”：它仍然有 CPU、GPU 和内存，只是外观看起来像一颗超级芯片或一个 SoC 平台。它也不能替代数据中心级多机架系统；128GB 对本地 Agent 很大，对训练前沿大模型仍然很小。</p>
+          <div class="quote-strip"><q>Unified memory allows the pool of RAM to be dynamically allocated</q></div>
+          <p class="source">来源：<a href="https://blogs.windows.com/devices/2026/05/31/introducing-surface-laptop-ultra-made-for-world-makers/" target="_blank" rel="noreferrer">Microsoft Surface Laptop Ultra 官方博客</a></p>
+        </div>
+
+        <div class="chip-visual" aria-label="RTX Spark 统一内存示意图">
+          <strong>RTX Spark 的关键不是“没有 CPU/GPU/内存”，而是它们在同一平台内协作</strong>
+          <div class="chip-grid">
+            <div class="chip-block">
+              <b>20 核 Grace CPU</b>
+              <span>负责操作系统、应用逻辑、工具调用、Agent 编排。</span>
+            </div>
+            <div class="chip-block">
+              <b>Blackwell RTX GPU</b>
+              <span>负责并行计算、图形、AI 推理、CUDA/RTX 工作流。</span>
+            </div>
+            <div class="chip-block">
+              <b>统一内存最高 128GB</b>
+              <span>CPU 与 GPU 共享，减少传统 RAM/VRAM 分隔带来的限制。</span>
+            </div>
+            <div class="chip-block">
+              <b>NVLink-C2C + CUDA</b>
+              <span>让芯片内协作和软件生态一起发挥作用。</span>
+            </div>
+          </div>
+          <div class="arrow-row">
+            <div class="mini-box">
+              <h4>旧式独显 PC</h4>
+              <p>CPU RAM 和 GPU VRAM 分开；大模型或大视频工程常被显存容量卡住。</p>
+            </div>
+            <div class="arrow">→</div>
+            <div class="mini-box">
+              <h4>统一内存 AI PC</h4>
+              <p>同一个大内存池支持本地模型、创作资产和 Agent 长任务。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>划时代意义</h2>
+        <p class="deck">我倾向于把它看成“如果落地成功，会改变 PC 与 AI 基础设施边界”的事件，而不是已经完成的革命。</p>
+      </div>
+
+      <div class="explain">
+        <article class="compact">
+          <h3>1. PC 从“运行应用”转向“运行本地 Agent”</h3>
+          <p>RTX Spark + Windows + OpenShell 的组合，目标是让个人电脑成为常驻 Agent 的本地执行端。普通人的变化是：代码、剪辑、检索、文件整理、个人数据处理不必全部上云，隐私、延迟和“按 token 计费焦虑”都有机会下降。</p>
+        </article>
+        <article class="compact">
+          <h3>2. NVIDIA 进入 Windows PC 核心处理器市场</h3>
+          <p>这不是又一张显卡，而是 CPU/GPU/统一内存打包输出给整机厂。它直接碰到 Intel、AMD、Qualcomm，也借鉴了 Apple Silicon 的一体化思路，但把 CUDA/RTX 和本地 AI Agent 作为差异化。</p>
+        </article>
+        <article class="compact">
+          <h3>3. 数据中心的 KPI 从 FLOPS 变成 token 经济</h3>
+          <p>Vera、Vera Rubin、Spectrum-X、BlueField 和 DSX 都围绕一个商业假设：Agent 会持续调用模型和工具，AI 工厂的收入由吞吐、功耗、可靠性和每 token 成本决定。</p>
+        </article>
+        <article class="compact">
+          <h3>4. 机器人和自动驾驶被纳入同一 Agent 模式</h3>
+          <p>Cosmos 3、Alpamayo 2 Super、Isaac GR00T 不只是“机器人模型”。NVIDIA 在把文本 Agent、企业 Agent、自动驾驶 Agent、机器人 Agent 都放进同一套模型 + 工具 + 运行时 + 加速库体系。</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>辩证看法</h2>
+        <p class="deck">真正值得关注的是发布后的价格、基准测试、兼容性、安全治理和开发者生态，而不是发布会上最响亮的口号。</p>
+      </div>
+
+      <div class="debate">
+        <article class="compact">
+          <h3>确实新的地方</h3>
+          <ul>
+            <li>Windows 阵营第一次有了 NVIDIA 自家主处理器级平台，且直接绑定 CUDA/RTX、统一内存和本地 Agent。</li>
+            <li>Vera CPU 表明 NVIDIA 不满足于 GPU，它要吃掉 Agent 工作负载里的 CPU、网络、存储、安全和运维利润。</li>
+            <li>AI PC 不再只讲“有 NPU”，而是讲能否本地运行大模型、长上下文、创作软件和常驻 Agent。</li>
+          </ul>
+        </article>
+        <article class="compact">
+          <h3>仍待证明的地方</h3>
+          <ul>
+            <li>价格未公布，首批设备很可能是高端产品；是否能普及到普通用户，还要看 OEM 定价。</li>
+            <li>Windows on Arm 的老问题仍在：应用兼容、游戏反作弊、驱动、专业插件能否稳定。</li>
+            <li>“本地跑 120B / 1M context”通常依赖低精度和优化栈，实际速度、功耗、散热和体验需要第三方实测。</li>
+            <li>Agent 安全不是硬件 alone 能解决。文件权限、浏览器操作、长期记忆、云端回传，都需要可审计的治理。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>建议精读 / 观看</h2>
+        <p class="deck">如果只看三条，优先看 keynote replay、RTX Spark 官方稿和 Microsoft Surface 技术说明；如果想看外部视角，再看技术媒体与 KOL。</p>
+      </div>
+
+      <div class="read-links">
+        <div class="read-link">
+          <b><a href="https://www.nvidia.com/en-tw/gtc/taipei/keynote/" target="_blank" rel="noreferrer">NVIDIA GTC Taipei 2026 Keynote Replay</a></b>
+          <p>最适合看黄仁勋如何把 AI 工厂、Agent PC、物理 AI 串成一个叙事。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank" rel="noreferrer">RTX Spark 官方新闻稿</a></b>
+          <p>适合核对规格、可运行工作流、合作厂商和发布时间。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://blogs.windows.com/devices/2026/05/31/introducing-surface-laptop-ultra-made-for-world-makers/" target="_blank" rel="noreferrer">Microsoft Surface Laptop Ultra 官方博客</a></b>
+          <p>最直接解释统一内存如何在 CPU/GPU 之间动态分配。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://www.tomshardware.com/laptops/nvidia-unveils-rtx-spark-superchip-at-computex-2026-new-platform-promises-to-turn-windows-into-an-agentic-ai-os-with-arm-cpu-blackwell-gpu-and-128gb-unified-memory" target="_blank" rel="noreferrer">Tom's Hardware：RTX Spark 技术解读</a></b>
+          <p>适合看 Windows on Arm、AI OS、内存和游戏/创作场景的技术媒体视角。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://www.phoronix.com/news/NVIDIA-RTX-Spark" target="_blank" rel="noreferrer">Phoronix：Linux 硬件视角</a></b>
+          <p>Michael Larabel 的 Linux 硬件覆盖值得跟踪，尤其是驱动、开发环境和实际兼容性。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://www.axios.com/2026/06/01/microsoft-nvidia-surface-ultra-rtx-spark" target="_blank" rel="noreferrer">Axios：Surface Ultra 与价格不确定性</a></b>
+          <p>适合看独立媒体对发布节奏、价格缺口和 Microsoft Build 后续的提醒。</p>
+        </div>
+        <div class="read-link">
+          <b>KOL 后续可跟踪：<a href="https://x.com/karpathy" target="_blank" rel="noreferrer">Andrej Karpathy</a> / <a href="https://x.com/MatthewBerman" target="_blank" rel="noreferrer">Matthew Berman</a></b>
+          <p>NVIDIA 官方 recap 提到二者与 DGX Station 相关；后续如果他们发真实体验，适合作为“发布会后实测”补充，不建议只凭转述下结论。</p>
+        </div>
+        <div class="read-link">
+          <b><a href="https://www.thepaper.cn/newsDetail_forward_33281894" target="_blank" rel="noreferrer">澎湃新闻中文报道</a></b>
+          <p>中文读者可快速理解“算力即收入、算力即利润”和 Vera/RTX Spark/DSX 的发布会脉络。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>我会继续观察的信号</h2>
+        <p class="deck">判断这是不是“划时代”，要看发布会之后的事实，而不是台上措辞。</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div>
+            <span class="tagline">价格</span>
+            <h3>RTX Spark 设备能否进入真实购买区间</h3>
+            <p>如果首批只是昂贵工作站，影响会先停留在开发者、创作者和企业；如果能下探到高端消费本价格带，才会改变 AI PC 的日常入口。</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <span class="tagline">兼容性</span>
+            <h3>Windows on Arm 能否跑专业软件和游戏</h3>
+            <p>发布会承诺很强，但专业插件、驱动、反作弊和历史软件才是 Windows 用户迁移的关键。</p>
+          </div>
+        </article>
+        <article class="card">
+          <div>
+            <span class="tagline">实测</span>
+            <h3>120B 本地模型的速度、热量和续航</h3>
+            <p>理论 FP4 算力和统一内存容量只是起点。真正重要的是 tokens/s、响应延迟、噪音、续航和长任务稳定性。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>来源与信心标注</h2>
+        <p class="deck">事实性产品信息主要来自官方新闻稿；技术媒体用于补足视角；社媒/KOL 只作为后续观察入口。</p>
+      </div>
+
+      <div class="source-grid">
+        <div class="compact">
+          <h3>官方来源</h3>
+          <ul>
+            <li><a href="https://www.nvidia.com/en-tw/gtc/taipei/keynote/" target="_blank" rel="noreferrer">NVIDIA GTC Taipei Keynote Replay</a></li>
+            <li><a href="https://blogs.nvidia.com/blog/nvidia-gtc-taipei-computex-2026-news/" target="_blank" rel="noreferrer">NVIDIA GTC Taipei official recap</a></li>
+            <li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-and-Microsoft-Reinvent-Windows-PCs-for-the-Age-of-Personal-AI/default.aspx" target="_blank" rel="noreferrer">RTX Spark press release</a></li>
+            <li><a href="https://nvidianews.nvidia.com/news/nvidia-unveils-vera-the-cpu-for-agents" target="_blank" rel="noreferrer">Vera CPU press release</a></li>
+            <li><a href="https://nvidianews.nvidia.com/news/vera-rubin-full-production-agentic-ai-factory" target="_blank" rel="noreferrer">Vera Rubin full production press release</a></li>
+            <li><a href="https://nvidianews.nvidia.com/news/enterprise-software-leaders-build-ai-agents-with-nvidia" target="_blank" rel="noreferrer">Agent Toolkit / Nemotron 3 Ultra press release</a></li>
+          </ul>
+        </div>
+        <div class="compact">
+          <h3>外部来源</h3>
+          <ul>
+            <li><a href="https://blogs.windows.com/devices/2026/05/31/introducing-surface-laptop-ultra-made-for-world-makers/" target="_blank" rel="noreferrer">Microsoft Surface Laptop Ultra</a></li>
+            <li><a href="https://techcrunch.com/2026/06/01/nvidia-chases-200b-cpu-market-with-ai-agent-pcs-from-microsoft-dell-and-hp/" target="_blank" rel="noreferrer">TechCrunch market context</a></li>
+            <li><a href="https://www.tomshardware.com/laptops/nvidia-unveils-rtx-spark-superchip-at-computex-2026-new-platform-promises-to-turn-windows-into-an-agentic-ai-os-with-arm-cpu-blackwell-gpu-and-128gb-unified-memory" target="_blank" rel="noreferrer">Tom's Hardware technical analysis</a></li>
+            <li><a href="https://www.phoronix.com/news/NVIDIA-RTX-Spark" target="_blank" rel="noreferrer">Phoronix Linux angle</a></li>
+            <li><a href="https://www.axios.com/2026/06/01/microsoft-nvidia-surface-ultra-rtx-spark" target="_blank" rel="noreferrer">Axios Surface / pricing caveat</a></li>
+            <li><a href="https://www.thepaper.cn/newsDetail_forward_33281894" target="_blank" rel="noreferrer">澎湃新闻中文报道</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-note">信心：产品存在、日期、核心规格、合作厂商为“已确认”；“划时代意义”为分析判断；价格、实际性能、兼容性、续航、安全效果为“待实测”。</p>
+    </section>
+  </main>
+</body>
+</html>

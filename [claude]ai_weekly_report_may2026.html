@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI周报 · 打工人版 · 2026年第21周</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1410;
+    --paper: #f5f0e8;
+    --paper-dark: #ede7d9;
+    --accent: #c0392b;
+    --accent-muted: #e8d5d3;
+    --gold: #b8860b;
+    --blue-ink: #1a2e4a;
+    --green: #2d6a4f;
+    --mid-gray: #6b6057;
+    --light-gray: #d4cfc7;
+    --rule: #c8bfb0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans SC', serif;
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    border-top: 4px solid var(--ink);
+    border-bottom: 4px double var(--ink);
+    padding: 28px 0 22px;
+    margin-bottom: 32px;
+  }
+  .masthead-kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--mid-gray);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .masthead-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 52px;
+    font-weight: 900;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .masthead-title span { color: var(--accent); }
+  .masthead-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--mid-gray);
+    margin-top: 12px;
+  }
+
+  /* ── DATELINE + INTRO ── */
+  .dateline {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--mid-gray);
+    letter-spacing: 1.5px;
+  }
+
+  .intro-block {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    border-left: 6px solid var(--accent);
+  }
+  .intro-block p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    line-height: 1.8;
+    font-weight: 400;
+  }
+  .intro-block strong { color: #f5c842; }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .section-label-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4px 10px;
+    white-space: nowrap;
+  }
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--ink);
+  }
+
+  h2.section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 4px;
+  }
+  .section-deck {
+    font-size: 13px;
+    color: var(--mid-gray);
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 14px;
+  }
+
+  /* ── CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .card-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .card-grid.full { grid-template-columns: 1fr; }
+
+  @media(max-width: 680px) {
+    .card-grid, .card-grid.three { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 22px 22px 18px;
+    position: relative;
+  }
+  .card.featured {
+    background: var(--blue-ink);
+    color: var(--paper);
+    border-color: var(--blue-ink);
+  }
+  .card.accent { border-top: 4px solid var(--accent); }
+  .card.gold-top { border-top: 4px solid var(--gold); }
+  .card.green-top { border-top: 4px solid var(--green); }
+
+  .card-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .card.featured .card-tag { color: #f5c842; }
+  .card.green-top .card-tag { color: var(--green); }
+  .card.gold-top .card-tag { color: var(--gold); }
+
+  .card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .card.featured h3 { color: white; }
+
+  .card p {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--mid-gray);
+  }
+  .card.featured p { color: #b8c4d4; }
+
+  .card-verdict {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--paper-dark);
+    border-left: 3px solid var(--accent);
+    font-size: 12px;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .card.featured .card-verdict {
+    background: rgba(255,255,255,0.1);
+    border-left-color: #f5c842;
+    color: #d4e0ef;
+  }
+
+  /* ── LARGE FEATURE BLOCK ── */
+  .feature-block {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-bottom: 40px;
+    background: white;
+  }
+  @media(max-width:720px){ .feature-block { grid-template-columns: 1fr; } }
+
+  .feature-block-main {
+    padding: 30px 28px;
+    border-right: 1px solid var(--rule);
+  }
+  .feature-block-sidebar {
+    padding: 26px 22px;
+    background: var(--paper-dark);
+  }
+  .feature-block-main h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+  .feature-block-main p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: #3a3028;
+    margin-bottom: 12px;
+  }
+  .sidebar-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+  }
+  .sidebar-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 12.5px;
+  }
+  .sidebar-item:last-child { border-bottom: none; margin-bottom: 0; }
+  .sidebar-item-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .sidebar-item-text strong {
+    display: block;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 2px;
+    font-weight: 700;
+  }
+  .sidebar-item-text span { color: var(--mid-gray); }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    border-top: 3px double var(--accent);
+    border-bottom: 3px double var(--accent);
+    padding: 22px 28px;
+    margin: 28px 0;
+    text-align: center;
+  }
+  .pull-quote p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .pull-quote cite {
+    display: block;
+    margin-top: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: var(--mid-gray);
+    font-style: normal;
+  }
+
+  /* ── DEBATE BLOCK ── */
+  .debate-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    margin-bottom: 40px;
+  }
+  @media(max-width:600px){ .debate-block { grid-template-columns: 1fr; } }
+  .debate-side {
+    padding: 24px 22px;
+  }
+  .debate-side.pro { background: #f0faf4; border-right: 1px solid var(--rule); }
+  .debate-side.con { background: #fdf4f4; }
+  .debate-side-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid currentColor;
+  }
+  .debate-side.pro .debate-side-label { color: var(--green); }
+  .debate-side.con .debate-side-label { color: var(--accent); }
+  .debate-point {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: #3a3028;
+  }
+  .debate-point::before {
+    content: "▸";
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 11px;
+  }
+  .debate-side.con .debate-point::before { content: "▸"; color: var(--accent); }
+  .debate-side.pro .debate-point::before { color: var(--green); }
+
+  /* ── TAKEAWAY BOX ── */
+  .takeaway-box {
+    background: var(--gold);
+    color: white;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+  }
+  .takeaway-box h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    padding-bottom: 12px;
+  }
+  .takeaway-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media(max-width:600px){ .takeaway-list { grid-template-columns: 1fr; } }
+  .takeaway-list li {
+    font-size: 13.5px;
+    line-height: 1.65;
+    padding-left: 18px;
+    position: relative;
+  }
+  .takeaway-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    font-weight: 700;
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 44px 0 36px;
+  }
+
+  /* ── TAG PILLS ── */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    padding: 3px 8px;
+    border: 1px solid var(--light-gray);
+    color: var(--mid-gray);
+    text-transform: uppercase;
+  }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    border-top: 4px double var(--ink);
+    padding-top: 20px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .report-footer p {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+  }
+
+  /* ── EMPHASIS ── */
+  strong.red { color: var(--accent); }
+  strong.gold { color: var(--gold); }
+  strong.blue { color: var(--blue-ink); }
+  strong.green { color: var(--green); }
+
+  .number-stat {
+    font-family: 'Space Mono', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--mid-gray);
+    letter-spacing: 1px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-bottom: 36px;
+  }
+  @media(max-width:600px){ .stats-row { grid-template-columns: 1fr 1fr; } }
+  .stat-cell {
+    background: white;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .inline-callout {
+    background: var(--paper-dark);
+    border-left: 4px solid var(--blue-ink);
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ MASTHEAD ══════════ -->
+<div class="masthead">
+  <div class="masthead-kicker">AI 情报站 · 打工人特供</div>
+  <div class="masthead-title">AI <span>周报</span></div>
+  <div class="masthead-sub">2026.05.19 — 05.27 &nbsp;·&nbsp; 第21周 &nbsp;·&nbsp; 本周指数：★★★★★ 史诗级</div>
+</div>
+
+<div class="dateline">
+  <span>发布于 2026年5月27日（周三）</span>
+  <span>涵盖领域：AI产品 · 市场调研 · 营销 · 产品设计 · 开发者工具 · 生活场景</span>
+</div>
+
+<!-- ══════════ INTRO ══════════ -->
+<div class="intro-block">
+  <p>这可能是<strong>2026年上半年最密集的AI事件周</strong>。Google I/O 发布史上最大规模AI产品矩阵，OpenAI 正式递交IPO申请，Anthropic 首次实现季度盈利，GitHub 上的 Claude Skills 库突破 38,900 星……</p>
+  <p style="margin-top: 12px;">本期报告聚焦：<strong>你作为打工人，哪些事情真正值得关注、哪些是炒概念、以及你现在就能用起来的工具。</strong></p>
+</div>
+
+<!-- ══════════ KEY STATS ══════════ -->
+<div class="stats-row">
+  <div class="stat-cell">
+    <span class="number-stat">60%</span>
+    <span class="stat-label">Google AI Ultra 降价幅度<br>从$250→$100/月</span>
+  </div>
+  <div class="stat-cell">
+    <span class="number-stat">38.9k</span>
+    <span class="stat-label">GitHub Claude Skills库<br>本周累计 Star 数</span>
+  </div>
+  <div class="stat-cell">
+    <span class="number-stat">69%</span>
+    <span class="stat-label">UX研究者已在<br>工作中使用AI</span>
+  </div>
+  <div class="stat-cell">
+    <span class="number-stat">80年</span>
+    <span class="stat-label">OpenAI解决的<br>Erdős数学悬案</span>
+  </div>
+</div>
+
+
+<!-- ══════════ SECTION 1: Google I/O ══════════ -->
+<div class="section-label">
+  <div class="section-label-badge">头条事件</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">Google I/O 2026：AI 从「回答问题」到「替你做事」的分水岭</h2>
+<p class="section-deck">2026年5月19日，Google 发布了可能是十年来最重要的开发者大会成果——不是因为哪个模型变强了，而是因为 AI 正在全面嵌入你每天打开的每一个应用。</p>
+
+<div class="feature-block">
+  <div class="feature-block-main">
+    <div class="card-tag">▶ 核心发布：Gemini Spark</div>
+    <h3>「你睡着的时候，AI 替你工作」——这不是营销词，是字面意思</h3>
+    <p>Gemini Spark 是本次 I/O 最颠覆性的产品。它是一个 <strong>7×24 小时在后台运行的 AI Agent</strong>，即使你关上笔记本，它仍在 Google Cloud 上持续工作——自动处理你的 Gmail、整理 Google Sheets、更新 Calendar、准备 Docs 草稿，并通过新的 Android Halo 通知系统汇报进展。</p>
+    <p>I/O 现场 Demo 中，Spark 自主完成了一次社区活动的完整策划：从 Gmail 抓取 RSVP 回复、追踪出席者、向未回复者发送跟进邮件、在 Sheets 中建立实时进度追踪器、并生成了活动安排的 Slides 演示文稿——<strong>全程每个动作执行前都请求用户确认</strong>。</p>
+    <p>Spark 将于下周向美国区 Google AI Ultra 用户（$100/月）开放，并计划在数周内通过 MCP 协议接入 Canva、Instacart、OpenTable 等第三方应用。</p>
+    <div class="card-verdict">
+      💡 <strong>打工人关联性：高。</strong>如果你每天要处理大量邮件、跟进任务、整理会议记录——Spark 描述的场景就是你的日常。唯一问题是它目前只覆盖 Google 生态，微信/飞书用户暂时无法受益。
+    </div>
+  </div>
+  <div class="feature-block-sidebar">
+    <div class="sidebar-title">本次 I/O 其他值得关注的发布</div>
+    <div class="sidebar-item">
+      <span class="sidebar-item-icon">🎬</span>
+      <div class="sidebar-item-text">
+        <strong>Gemini Omni：统一文本/图像/视频创作</strong>
+        <span>在同一个对话窗口里完成文字描述、图片生成、视频剪辑——不切换工具。营销人员制作素材的工作流可能被彻底重构。</span>
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-item-icon">🛒</span>
+      <div class="sidebar-item-text">
+        <strong>Universal Cart：跨平台 AI 购物车</strong>
+        <span>在 Gmail、YouTube、Google Search 任意界面加入商品，AI 自动追踪价格历史、比价、低库存提醒，支持代理支付。今夏在美上线。</span>
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-item-icon">📺</span>
+      <div class="sidebar-item-text">
+        <strong>Ask YouTube：用对话替代搜索</strong>
+        <span>不再刷视频找信息——直接问「这个教程哪段讲了 X」，AI 定位到具体片段。对于用 YouTube 做竞品调研、学习新技能的人极具价值。</span>
+      </div>
+    </div>
+    <div class="sidebar-item">
+      <span class="sidebar-item-icon">📋</span>
+      <div class="sidebar-item-text">
+        <strong>Daily Brief：个人化每日简报</strong>
+        <span>Gemini 扫描你的 Gmail、Calendar、Tasks，每天主动整理出你今天最需要关注的事项和建议的下一步行动。已向 AI Plus 和 Pro 用户推送。</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ SECTION 2: 工作场景 GitHub Skills ══════════ -->
+<hr class="section-divider">
+<div class="section-label">
+  <div class="section-label-badge">工作场景</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">GitHub Claude Skills 生态爆发：这周出现了什么值得装进工具箱的新东西？</h2>
+<p class="section-deck">截至本周，GitHub 上以 claude-code-skills 为标签的代码库已累积近 <strong>38,900 Star</strong>，社区贡献的 Skill 数量突破 <strong>1,400+</strong>。其中有几个值得重点关注。</p>
+
+<div class="card-grid">
+  <div class="card accent">
+    <div class="card-tag">★ 本周最热 · 研究自动化</div>
+    <h3>ARIS：让 AI 趁你睡觉做研究</h3>
+    <p>Auto-Research-In-Sleep，GitHub 本周 10,800+ Star 的热门项目。基于纯 Markdown Skill 格式，让 Claude Code / Codex 在你离线时自主完成：文献检索与评审、实验设计与运行、论文写作与逻辑自审。</p>
+    <p style="margin-top: 10px;">真实案例：一个 ML 项目在一夜间经历 4 轮自主审阅迭代——自动运行了 20+ 次 GPU 实验，重写了论文叙事框架，删除了不成立的论点。该论文后来被 AAAI 2026 接收。</p>
+    <div class="card-verdict">
+      💡 <strong>泛化思考：</strong>ARIS 的核心模式——「设计→执行→评审→迭代」的自动循环——对市场调研同样适用：问卷设计→数据采集→交叉分析→报告生成，理论上可以走完全流程。
+    </div>
+    <div class="tag-row">
+      <span class="tag">学术研究</span><span class="tag">产品调研</span><span class="tag">Claude Code</span>
+    </div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-tag">329+ Skills · 营销/产品场景</div>
+    <h3>alirezarezvani/claude-skills：从增长营销到 C-level 顾问</h3>
+    <p>本周更新（11小时前）的综合 Skills 库，覆盖 329 个细分场景，其中与打工人最相关的包括：</p>
+    <p style="margin-top: 8px;"><strong>growth-marketer</strong>（增长营销策略）、<strong>launch-strategy</strong>（产品上市规划）、<strong>copywriting</strong>（文案写作）、<strong>seo-audit</strong>（SEO 诊断）、<strong>email-sequence</strong>（邮件序列设计）、<strong>analytics-tracking</strong>（数据埋点方案）。</p>
+    <p style="margin-top: 8px;">该库还内置了 Persona 编排机制——你可以把「startup-cto + growth-marketer + copywriting」组合成一个虚拟团队，在 Claude Code 里分阶段交付。</p>
+    <div class="card-verdict">
+      💡 适合独立开发者、小团队创业者，或者需要快速产出营销方案的产品经理。
+    </div>
+  </div>
+  <div class="card green-top">
+    <div class="card-tag">用户研究 · 医疗健康</div>
+    <h3>glebis/claude-skills：doctorg 健康研究 + 思维分析</h3>
+    <p>包含两个有趣 Skill：</p>
+    <p style="margin-top: 8px;"><strong>/doctorg</strong>：基于分级可信来源和 GRADE 证据评级，提供循证健康研究服务，可集成 Apple Health 数据做个性化建议。支持三档深度（快速30秒/深度90秒/全面3分钟）。</p>
+    <p style="margin-top: 8px;"><strong>/thinking-patterns</strong>：分析你过去3个月的 Claude 对话记录，识别你的认知模式和思维偏好——适合做季度复盘或辅导准备。</p>
+    <div class="card-verdict">
+      💡 thinking-patterns 的思路有启发性：把 AI 对话记录变成「自我认知数据」，这在用户研究场景里同样可以用来分析用户的提问模式。
+    </div>
+  </div>
+  <div class="card featured">
+    <div class="card-tag">生态观察</div>
+    <h3>Skill 格式正在成为跨工具标准</h3>
+    <p>Anthropic 在 2025 年 10 月引入了 Skill 格式，12 月开放为开放标准。本周数据显示，该格式现已被 <strong>Claude Code、OpenAI Codex CLI、Cursor、Gemini CLI、Antigravity、Windsurf</strong> 全部采纳。</p>
+    <p style="margin-top: 10px;">这意味着：你在 GitHub 找到的一个好 Skill，不再被锁定在某个工具里——你今天用 Claude Code，明天换成 Gemini CLI，Skill 仍然有效。</p>
+    <div class="card-verdict">
+      💡 Skill 标准的跨工具兼容性，本质上是在建立一个「AI 工作流的 NPM 生态」。这对产品设计师和研究员来说是很大的红利——以后可以共享、组合、发布自己的专属工作流。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ SECTION 3: 市场调研/营销/产品 ══════════ -->
+<hr class="section-divider">
+<div class="section-label">
+  <div class="section-label-badge">专项聚焦</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">市场调研 · 营销 · 产品设计：AI 正在重塑哪些具体工作流？</h2>
+<p class="section-deck">这一周不只是大模型公司的表演，更是 AI 工具在专业场景落地的加速期。</p>
+
+<div class="card-grid">
+  <div class="card accent">
+    <div class="card-tag">市场调研 · UX Research</div>
+    <h3>69% 的 UX 研究者已在使用 AI：进入主流不是趋势，是现实</h3>
+    <p>据 Maze 发布的《2026 Future of User Research Report》，UX 研究领域的 AI 采纳率在一年内暴涨 19 个百分点：</p>
+    <p style="margin-top: 8px;">• <strong>88%</strong> 的研究者认为「AI辅助分析与合成」是2026年最重要趋势<br>• <strong>63%</strong> 报告 AI 让研究项目交付周期显著缩短<br>• <strong>60%</strong> 报告团队整体效率显著提升<br>• 全球 UX 研究软件市场规模预计在 2026 年达到 <strong>42 亿美元</strong></p>
+    <div class="card-verdict">
+      💡 这不是用 AI 替代用户研究，而是「同样的时间，处理 10 倍的访谈量」。Dovetail、Maze、Listen Labs 等工具正在将访谈录音→主题提炼→见解报告自动化。
+    </div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-tag">营销 · 内容创作</div>
+    <h3>Gemini Omni 对营销人的冲击：创意生产链即将重组</h3>
+    <p>Gemini Omni 是第一个在同一个对话窗口里整合「文字生成→图片创作→视频剪辑」的主流 AI。这在营销创意场景意味着什么？</p>
+    <p style="margin-top: 8px;">你可以在一个对话流程里完成：<strong>写文案 → 生成配图 → 制作 15 秒竖屏视频 → 添加字幕和背景音乐</strong>。目前这需要至少 3-4 个不同工具和多人协作。</p>
+    <p style="margin-top: 8px;">结合国内艾媒咨询报告的数据，<strong>63% 的营销团队已启用 AI 内容生成</strong>，但大多数仍处于「工具期」（单点辅助），尚未进入「流程期」（全链路整合）。Gemini Omni 的出现可能大幅压缩这个过渡周期。</p>
+    <div class="card-verdict">
+      ⚠️ 反思：国内 Gemini 服务访问受限，这个红利短期内对国内营销从业者更多是「看得见够不着」的状态。
+    </div>
+  </div>
+  <div class="card green-top">
+    <div class="card-tag">产品设计 · AI工具组合</div>
+    <h3>2026 市场调研工具矩阵：什么工具组合能覆盖全流程？</h3>
+    <p>根据本周多份行业测评，目前相对成熟的调研工具链如下：</p>
+    <p style="margin-top: 8px;">
+      <strong>定量调研</strong>：Quantilope / Attest（自动问卷设计+分析）<br>
+      <strong>定性调研</strong>：Listen Labs（AI 主持访谈+报告生成）<br>
+      <strong>竞品监测</strong>：Brandwatch / Crayon（社交聆听+竞品追踪）<br>
+      <strong>综合研究</strong>：Perplexity Deep Research（有引用的实时研究报告）<br>
+      <strong>数据可视化</strong>：Displayr / Tableau（交叉分析+可视化）
+    </p>
+    <div class="card-verdict">
+      💡 问卷设计→数据采集→分析→报告 的全流程自动化在技术上已经可行，但目前需要在 3-5 个工具间手动切换。真正打通的一体化平台仍是市场空白。
+    </div>
+  </div>
+  <div class="card accent" style="border-top:4px solid var(--blue-ink);">
+    <div class="card-tag" style="color:var(--blue-ink);">Ask YouTube · 调研新方法</div>
+    <h3>Ask YouTube：竞品调研和用户痛点挖掘的全新入口</h3>
+    <p>Ask YouTube 不只是「更好用的搜索」——它是一种全新的定性调研入口。你可以问：「这个产品类目的差评主要集中在哪些问题？」，AI 会从数千个用户评测视频、开箱视频、吐槽视频里提炼答案，并给出时间戳引用。</p>
+    <p style="margin-top: 8px;">对产品经理来说：这相当于「不花钱、不招募被访者，批量做竞品用户痛点访谈」。</p>
+    <div class="card-verdict">
+      💡 目前仍在美国测试阶段。但这个逻辑——「把 UGC 内容变成可查询的调研数据库」——已经有国内团队在用 AI 做类似的小红书/抖音评论分析。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ SECTION 4: 生活场景 ══════════ -->
+<hr class="section-divider">
+<div class="section-label">
+  <div class="section-label-badge">生活场景</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">走进日常：这周 AI 如何改变你的非工作时间</h2>
+<p class="section-deck">AI 的渗透不只发生在工位上。购物、学习、健康管理……AI 正在以更低的感知成本嵌入生活节奏。</p>
+
+<div class="card-grid three">
+  <div class="card accent">
+    <div class="card-tag">购物场景</div>
+    <h3>Universal Cart：AI 替你「比价守候」</h3>
+    <p>在 Gmail 里看到一封限时特惠邮件，把商品加入购物车，AI 自动追踪价格历史、发现更低价格、在库存告急时提醒你——跨 Amazon、Shopify、Walmart 三大平台。今夏美国上线。</p>
+    <div class="card-verdict">💡 国内类比：这件事淘宝/京东的「降价提醒」已做了一半，但跨平台比价和主动 AI 代理购买尚未实现。</div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-tag">健康管理</div>
+    <h3>doctorg Skill：循证健康问答</h3>
+    <p>基于 Claude Code 的健康研究 Skill，可集成 Apple Health 数据，提供分级引用的循证建议——比普通 AI 问答更严谨，比找医生更即时。支持「快速/深度/全面」三档。</p>
+    <div class="card-verdict">💡 注意：这是信息工具，不是医疗诊断。对于日常健康自查、营养方案研究有价值；复杂症状仍需专业就医。</div>
+  </div>
+  <div class="card green-top">
+    <div class="card-tag">知识管理</div>
+    <h3>Gemini Daily Brief：你的 AI 晨报秘书</h3>
+    <p>扫描 Gmail + Calendar + Tasks，每天主动生成「今日最重要的事 + 建议行动」。已向 Google AI Plus（部分免费）和 Pro 用户推送。相当于有了一个每天帮你整理待办的私人助理。</p>
+    <div class="card-verdict">💡 使用 Google Workspace 的职场人群可以立即体验，今天就能开始用。</div>
+  </div>
+</div>
+
+<div class="inline-callout">
+  <strong>延伸思考：</strong>微信读书、喜马拉雅等国内内容平台，是否会跟进推出类似 AI Agent 功能？参考本文开头用户假设的「微信读书 Skill」场景，技术上完全可行——AI 根据你的阅读习惯生成书摘、推荐下一本、在读完某章后主动问你「你觉得作者的这个观点站得住脚吗」。这类「陪伴型 AI 读书助手」在 2026 年下半年有很大可能落地。
+</div>
+
+
+<!-- ══════════ SECTION 5: 大事件背景 ══════════ -->
+<hr class="section-divider">
+<div class="section-label">
+  <div class="section-label-badge">行业格局</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">那些你需要知道的行业大事：OpenAI IPO、数学突破、Anthropic 首盈</h2>
+<p class="section-deck">这些事件本身不直接影响你明天的工作，但它们决定了 AI 行业未来一年的走向和工具生态。</p>
+
+<div class="card-grid">
+  <div class="card featured">
+    <div class="card-tag">5月21日</div>
+    <h3>OpenAI 模型自主解决了 80 年数学悬案</h3>
+    <p>OpenAI 的内部通用推理模型（尚未发布）自主证伪了 Paul Erdős 在 1946 年提出的单位距离问题——这是 AI 首次在没有特定目标设计的情况下，自主完成数学领域的原创研究突破。</p>
+    <p style="margin-top: 10px;">剑桥数学家 Timothy Gowers 评论：「没有任何之前的 AI 生成证明接近达到这个水准」。证明方法跨越了代数数论和离散几何两个领域。</p>
+    <div class="card-verdict">
+      💡 这意味着什么？AI 不再只是「搜索引擎+写作助手」——它开始具备在人类没有指明道路的情况下，独立探索并发现未知的能力。对科研、工程、药物研发的长期影响极为深远。
+    </div>
+  </div>
+  <div class="card accent">
+    <div class="card-tag">5月22日</div>
+    <h3>OpenAI 正式递交 IPO 申请</h3>
+    <p>OpenAI 向 SEC 提交了保密草案，高盛和摩根士丹利联合主承销，目标上市窗口为 2026 年劳动节至感恩节之间（9月为早期目标）。当前估值 <strong>8,520 亿美元</strong>，年化收入 250 亿美元，年化支出约 300 亿美元。</p>
+    <p style="margin-top: 10px;">同周，Elon Musk 对 OpenAI 的诉讼被加州陪审团驳回，移除了 IPO 的最大法律障碍。</p>
+    <div class="card-verdict">
+      ⚠️ 注意：OpenAI 目前仍处于亏损状态（支出高于收入）。IPO 估值是否合理，市场会用真金白银来投票。
+    </div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-tag">5月20-24日</div>
+    <h3>Anthropic 首次季度盈利 + Karpathy 加盟</h3>
+    <p>Anthropic 报告 2026 年 Q1 首次实现季度盈利，年化营收达 <strong>109 亿美元</strong>，正在推进新一轮估值约 <strong>9,000 亿美元</strong>的融资。</p>
+    <p style="margin-top: 10px;">同周，前 OpenAI 核心成员、最受欢迎的 AI 教育者 <strong>Andrej Karpathy</strong> 正式加入 Anthropic，专注前沿模型研究。</p>
+    <div class="card-verdict">
+      💡 对 Claude 用户意味着：Anthropic 的财务健康度支撑了它继续保持对安全性和质量的高投入，不必为了生存而妥协产品方向。
+    </div>
+  </div>
+  <div class="card" style="border-top:4px solid #8b0000;">
+    <div class="card-tag" style="color:#8b0000;">警示事件</div>
+    <h3>Meta 被曝「用员工数据训练 AI，再裁掉员工」</h3>
+    <p>泄露录音显示，Meta 在发布大规模裁员（8,000 人）计划前，已在内部用员工的工作成果训练 AI 系统。Zuckerberg 在对话中讨论了 AI 替代中层管理职能的计划。</p>
+    <p style="margin-top: 10px;">这引发了关于 AI 替代就业的最直接争议：<strong>你贡献的工作数据，正在被用来训练替代你的 AI。</strong></p>
+    <div class="card-verdict">
+      ⚠️ 这不是孤例。Intuit（TurboTax母公司）同周宣布裁员 17%，明确指向 AI 转型。打工人需要认真思考自己岗位的 AI 替代风险。
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ SECTION 6: 辩证思考 ══════════ -->
+<hr class="section-divider">
+<div class="section-label">
+  <div class="section-label-badge">批判性分析</div>
+  <div class="section-label-line"></div>
+</div>
+<h2 class="section-title">冷静一下：这些「突破」真的是突破吗？</h2>
+<p class="section-deck">AI 行业从不缺乏高喊「历史性时刻」的声音。但哪些东西经得起推敲？</p>
+
+<div class="pull-quote">
+  <p>「Gemini Spark 可以替你规划活动——但 Demo 背后有多少真实用户能无缝使用，才是真正的考验。」</p>
+  <cite>—— 本刊编辑部</cite>
+</div>
+
+<div class="debate-block">
+  <div class="debate-side pro">
+    <div class="debate-side-label">✓ 真实进展</div>
+    <div class="debate-point"><div>OpenAI 数学突破经过独立数学家验证，具有可发表于顶刊的学术价值——这是有史以来 AI 最接近「原创科学发现」的一次，无法轻易质疑。</div></div>
+    <div class="debate-point"><div>Claude Skills 生态（1,400+ Skill，跨工具标准）的爆发不是炒作——它是开发者社区用脚投票的结果，38,900 Star 有实际使用量支撑。</div></div>
+    <div class="debate-point"><div>UX 研究 AI 采纳率一年跳涨 19 个百分点，且有 63% 的用户报告明确的效率提升——这是有据可查的行业变化，不是预测。</div></div>
+    <div class="debate-point"><div>Anthropic 首次季度盈利，证明 AI 基础设施已进入商业正向循环，行业不再依赖风险资金「烧钱续命」。</div></div>
+  </div>
+  <div class="debate-side con">
+    <div class="debate-side-label">✗ 需要保持怀疑</div>
+    <div class="debate-point"><div>Gemini Spark 的 Demo 是精心设计的受控场景。「AI 自主规划社区活动」在真实世界的成功率和用户体验，与 I/O 舞台相差多少——只有实际落地后才能评估。</div></div>
+    <div class="debate-point"><div>OpenAI 已经因为「解决了 Erdős 问题」虚报过一次（GPT-5 版本），这次虽经验证，但 AI 行业反复制造的「历史首次」越来越难以分辨真假。</div></div>
+    <div class="debate-point"><div>营销 AI 的 ROI 量化仍是行业痛点——63% 的营销团队用 AI，但只有少数能说清楚投入产出比。「省了时间」不等于「赚了钱」。</div></div>
+    <div class="debate-point"><div>Universal Cart 和 Ask YouTube 目前仅限美国，Google 的全球化落地节奏向来慢于公告节奏。对非美国用户，这些「发布」可能等一两年才成真。</div></div>
+  </div>
+</div>
+
+<div class="card-grid full">
+  <div class="card" style="border-top:4px solid var(--blue-ink);">
+    <div class="card-tag" style="color:var(--blue-ink);">深层结构性问题</div>
+    <h3>当 AI 替你工作，你的「不可替代性」在哪里？</h3>
+    <p>Meta 事件是一面镜子。Gemini Spark 可以替你跟进邮件、整理 Sheets、起草文档；ARIS 可以替你做调研、写论文；Gemini Omni 可以替你做创意内容……<strong>那么，你的价值在哪里？</strong></p>
+    <p style="margin-top: 10px;">一个值得认真思考的框架是：AI 非常擅长「执行已知路径」，但在「判断问题本身是否值得解决」「建立人与人之间的信任关系」「在模糊情境中制定方向」方面仍极其依赖人类。</p>
+    <p style="margin-top: 10px;">对于市场调研人员，这意味着：与其花时间做数据整理（AI 来），不如把更多时间投入「设计出对的问题」「把研究结果转化为高层决策语言」——这才是 AI 尚不能替代的地方。</p>
+  </div>
+</div>
+
+
+<!-- ══════════ TAKEAWAY ══════════ -->
+<hr class="section-divider">
+<div class="takeaway-box">
+  <h3>🗂 打工人行动清单：这周你可以做的 5 件事</h3>
+  <ul class="takeaway-list">
+    <li>如果你用 Google Workspace，今天去 Gemini 设置里开启 <strong>Daily Brief</strong>——这是目前最接近「AI 晨报秘书」的免费功能。</li>
+    <li>如果你做用户研究或市场调研，把 <strong>Dovetail 或 Maze</strong> 加入工具栈，先用免费版感受 AI 访谈分析的效率差距。</li>
+    <li>访问 <strong>github.com/ComposioHQ/awesome-claude-skills</strong>，找 1 个与你岗位相关的 Skill 下载试用。营销人员可以从 growth-marketer 开始。</li>
+    <li>用 <strong>Perplexity Deep Research</strong>（有免费额度）做一次你平时要花半天的竞品调研——感受 AI 研究的当前天花板在哪里。</li>
+    <li>认真问自己：「我的工作里，哪 20% 是真正需要人类判断力的？」——保护和强化这 20%，是应对 AI 替代的最有效策略。</li>
+  </ul>
+</div>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<div class="report-footer">
+  <p>AI 情报站 · 打工人特供 · 第21周 · 2026年5月27日</p>
+  <p>本报告基于公开资讯综合整理，不构成投资建议</p>
+  <p>数据来源：Google I/O 官方、TechCrunch、GitHub Topics、Maze Research Report、Unrot Weekly</p>
+</div>
+
+</body>
+</html>
