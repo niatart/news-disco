@@ -1,0 +1,125 @@
+name: Auto Generate Index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate index.html
+        run: |
+          python3 << 'EOF'
+          import os
+          import re
+
+          files = sorted([
+              f for f in os.listdir('.')
+              if f.endswith('.html') and f != 'index.html'
+          ])
+
+          def make_title(filename):
+              name = filename.replace('.html', '')
+              name = re.sub(r'[\[\]_\-]', ' ', name)
+              name = re.sub(r'\s+', ' ', name).strip()
+              return name.title()
+
+          items = ''
+          for f in files:
+              title = make_title(f)
+              from urllib.parse import quote
+              href = quote(f)
+              items += f'''      <li>
+                <a href="{href}">
+                  <span class="icon">📄</span>
+                  {title}
+                </a>
+              </li>\n'''
+
+          html = f'''<!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>News Disco — AI 报告合集</title>
+            <style>
+              * {{ box-sizing: border-box; margin: 0; padding: 0; }}
+              body {{
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+                background: #0d1117;
+                color: #c9d1d9;
+                min-height: 100vh;
+                padding: 48px 24px;
+              }}
+              .container {{ max-width: 720px; margin: 0 auto; }}
+              h1 {{
+                font-size: 2rem;
+                font-weight: 700;
+                color: #f0f6fc;
+                margin-bottom: 8px;
+              }}
+              .subtitle {{
+                color: #8b949e;
+                margin-bottom: 40px;
+                font-size: 0.95rem;
+              }}
+              .list {{ list-style: none; display: flex; flex-direction: column; gap: 12px; }}
+              .list li a {{
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                padding: 16px 20px;
+                background: #161b22;
+                border: 1px solid #30363d;
+                border-radius: 8px;
+                text-decoration: none;
+                color: #58a6ff;
+                font-size: 0.95rem;
+                transition: border-color 0.15s, background 0.15s;
+              }}
+              .list li a:hover {{
+                background: #1c2128;
+                border-color: #58a6ff;
+                color: #79c0ff;
+              }}
+              .icon {{ font-size: 1.2rem; flex-shrink: 0; }}
+              footer {{
+                margin-top: 48px;
+                font-size: 0.8rem;
+                color: #484f58;
+                text-align: center;
+              }}
+            </style>
+          </head>
+          <body>
+            <div class="container">
+              <h1>📰 News Disco</h1>
+              <p class="subtitle">AI 生成的新闻与报告合集（共 {len(files)} 篇）</p>
+              <ul class="list">
+          {items}    </ul>
+              <footer>由 GitHub Pages 驱动 · niatart/news-disco</footer>
+            </div>
+          </body>
+          </html>'''
+
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(html)
+          print(f"Generated index.html with {len(files)} files.")
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "Auto-update index.html [skip ci]"
+          git push
