@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///Users/bear/Documents/news/ai-short-drama-report-2026-06-03.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI短剧与漫剧业务落地观察｜2026-06-03</title>
+  <link href="./AI短剧与漫剧业务落地观察｜2026-06-03（第三版）_files/css2" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1b1715;
+      --paper: #f7f0e4;
+      --paper-2: #efe4d2;
+      --white: #fffaf1;
+      --rule: #d3c4ad;
+      --muted: #6d6255;
+      --red: #b33a32;
+      --blue: #214a73;
+      --green: #26654f;
+      --gold: #9b6b15;
+      --violet: #65508a;
+      --shadow: rgba(62, 46, 31, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-weight: 400;
+      line-height: 1.76;
+      letter-spacing: 0;
+      background:
+        linear-gradient(90deg, rgba(27, 23, 21, 0.055) 1px, transparent 1px) 0 0 / 40px 40px,
+        var(--paper);
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      color: var(--red);
+    }
+
+    .page {
+      width: calc(100% - 56px);
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 34px 0 78px;
+    }
+
+    .masthead {
+      border-top: 5px solid var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 24px 0 22px;
+      margin-bottom: 26px;
+      display: block;
+    }
+
+    .stamp,
+    .kicker,
+    .dateline,
+    .label,
+    .tag,
+    .source-note,
+    .chip,
+    .small {
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .stamp {
+      border: 1px solid var(--ink);
+      min-height: 126px;
+      padding: 12px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.45;
+      color: var(--muted);
+      background: rgba(255, 250, 241, 0.62);
+    }
+
+    .stamp strong {
+      display: block;
+      color: var(--red);
+      font-size: 24px;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .title-block {
+      text-align: center;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-size: clamp(38px, 8vw, 78px);
+      font-weight: 900;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      color: var(--red);
+    }
+
+    .subtitle {
+      margin: 14px auto 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .dateline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 12px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .lead {
+      background: var(--ink);
+      color: var(--paper);
+      border-left: 7px solid var(--red);
+      padding: 26px 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 14px 40px var(--shadow);
+    }
+
+    .lead p {
+      margin: 0 0 12px;
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.62;
+    }
+
+    .lead p:last-child { margin-bottom: 0; }
+
+    .brief {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 280px;
+      gap: 18px;
+      margin: 0 0 34px;
+      align-items: stretch;
+    }
+
+    .brief-card {
+      border: 1px solid var(--rule);
+      background: rgba(255, 250, 241, 0.78);
+      padding: 18px 20px;
+    }
+
+    .brief-card h2,
+    .brief-card h3 {
+      margin-top: 0;
+    }
+
+    .brief-card strong {
+      color: var(--red);
+    }
+
+    .brief-list {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      color: #3d332b;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: 42px;
+    }
+
+    .stat {
+      background: var(--white);
+      padding: 18px 14px 16px;
+      text-align: center;
+      min-height: 116px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--red);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 44px 0 8px;
+    }
+
+    .label {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 4px 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .line {
+      flex: 1;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    h2 {
+      margin: 0 0 7px;
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-weight: 900;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.32;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .deck {
+      margin: 0 0 22px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 14px;
+      font-size: 14px;
+      max-width: 820px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      border: 1px solid var(--rule);
+      background: var(--white);
+      margin-bottom: 34px;
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .feature-main {
+      padding: 28px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .feature-side {
+      background: var(--paper-2);
+      padding: 22px;
+    }
+
+    .feature p,
+    .card p,
+    .market p,
+    .creator p,
+    .note p {
+      color: #382f28;
+      font-size: 14px;
+    }
+
+    .tag {
+      color: var(--red);
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .verdict {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--red);
+      background: var(--paper-2);
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card,
+    .market,
+    .creator,
+    .note {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--red);
+      padding: 20px;
+    }
+
+    .card.blue,
+    .market.blue,
+    .creator.blue { border-top-color: var(--blue); }
+
+    .card.green,
+    .market.green,
+    .creator.green { border-top-color: var(--green); }
+
+    .card.gold,
+    .market.gold,
+    .creator.gold { border-top-color: var(--gold); }
+
+    .card.violet,
+    .market.violet,
+    .creator.violet { border-top-color: var(--violet); }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 10px 0 0;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border: 1px solid var(--rule);
+      background: rgba(247, 240, 228, 0.75);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .market-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 34px;
+    }
+
+    .market {
+      padding: 17px 16px;
+      min-height: 240px;
+    }
+
+    .bar {
+      height: 8px;
+      background: #e1d4c1;
+      margin: 12px 0 10px;
+      overflow: hidden;
+      border: 1px solid #cab89f;
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      background: var(--red);
+    }
+
+    .market.blue .bar i { background: var(--blue); }
+    .market.green .bar i { background: var(--green); }
+    .market.gold .bar i { background: var(--gold); }
+    .market.violet .bar i { background: var(--violet); }
+
+    .signal {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 20px;
+      margin-bottom: 34px;
+    }
+
+    .signal-panel {
+      border: 1px solid var(--rule);
+      background: var(--white);
+      padding: 20px;
+    }
+
+    .signal-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .signal-list li {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 12px;
+      align-items: baseline;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 10px;
+      color: #382f28;
+      font-size: 14px;
+    }
+
+    .signal-list li:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .signal-list b {
+      color: var(--red);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .creator-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+
+    .creator {
+      display: grid;
+      grid-template-columns: 116px 1fr;
+      gap: 16px;
+      align-items: start;
+      min-height: 190px;
+    }
+
+    .takeaway {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 24px 28px;
+      margin-bottom: 34px;
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .takeaway h2 {
+      color: var(--paper);
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .takeaway p {
+      margin: 0;
+      color: #efe3d0;
+      font-size: 15px;
+    }
+
+    .debate {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--rule);
+      margin-bottom: 34px;
+    }
+
+    .debate > div {
+      padding: 22px;
+    }
+
+    .debate .yes {
+      background: #edf7ef;
+      border-right: 1px solid var(--rule);
+    }
+
+    .debate .no {
+      background: #fff0ed;
+    }
+
+    .debate ul,
+    .actions ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .debate li,
+    .actions li {
+      margin-bottom: 9px;
+    }
+
+    .actions {
+      background: var(--gold);
+      color: #fff;
+      padding: 26px 30px;
+      margin-bottom: 34px;
+    }
+
+    .actions h2 {
+      color: #fff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+
+    .actions a {
+      color: #fff;
+      text-decoration-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 38px;
+    }
+
+    .note {
+      border-top-color: var(--blue);
+    }
+
+    .sources {
+      border-top: 4px double var(--ink);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .source-note {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    @media (max-width: 900px) {
+      .masthead {
+        grid-template-columns: 1fr;
+      }
+
+      .stamp {
+        min-height: 86px;
+      }
+
+      .brief,
+      .feature,
+      .signal,
+      .takeaway,
+      .creator {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-main {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .market-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100% - 24px);
+        padding-top: 20px;
+      }
+
+      .dateline,
+      .grid,
+      .grid.three,
+      .creator-list,
+      .debate,
+      .notes {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .market-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lead {
+        padding: 22px 20px;
+      }
+
+      .lead p {
+        font-size: 18px;
+      }
+
+      .debate .yes {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+    }
+
+    /* Visual refresh: fluid containers, cinematic research palette, image-first creator cards. */
+    :root {
+      --ink: #161310;
+      --paper: #f4ecdf;
+      --paper-2: #e8dcc9;
+      --white: #fffaf2;
+      --rule: #cbb99d;
+      --muted: #716657;
+      --red: #b4362e;
+      --blue: #1d5e7c;
+      --green: #2c6a55;
+      --gold: #a56f12;
+      --violet: #684a7b;
+      --cyan: #2c8791;
+      --shadow: rgba(34, 23, 13, 0.16);
+    }
+
+    html {
+      background: var(--paper);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+      background:
+        linear-gradient(90deg, rgba(22, 19, 16, 0.05) 1px, transparent 1px) 0 0 / 56px 56px,
+        linear-gradient(0deg, rgba(22, 19, 16, 0.035) 1px, transparent 1px) 0 0 / 56px 56px,
+        var(--paper);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .page {
+      width: calc(100% - 56px);
+      max-width: 1180px;
+      padding: clamp(22px, 4vw, 46px) 0 78px;
+    }
+
+    .masthead {
+      display: block;
+      padding: 0 0 26px;
+      border-top: 6px solid var(--ink);
+      border-bottom: 4px double var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 18px 0 14px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .title-block {
+      text-align: left;
+      padding: clamp(26px, 5vw, 56px) 0 22px;
+      max-width: 980px;
+    }
+
+    .kicker {
+      color: var(--cyan);
+      font-weight: 800;
+    }
+
+    h1 {
+      max-width: 100%;
+      font-size: clamp(52px, 11vw, 128px);
+      line-height: 0.96;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+
+    h1 span {
+      color: var(--red);
+    }
+
+    .subtitle {
+      margin: 18px 0 0;
+      max-width: 820px;
+      color: #4d443b;
+      font-size: clamp(15px, 1.8vw, 18px);
+      line-height: 1.78;
+    }
+
+    .storyboard-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .story-frame {
+      min-height: 126px;
+      padding: 16px;
+      border: 1px solid var(--ink);
+      background:
+        linear-gradient(135deg, rgba(180, 54, 46, 0.16), transparent 58%),
+        var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .story-frame b {
+      color: var(--red);
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-weight: 900;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .story-frame span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .dateline {
+      margin-bottom: 18px;
+    }
+
+    .thesis-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 360px;
+      gap: 0;
+      margin: 0 0 26px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: 0 18px 46px var(--shadow);
+    }
+
+    .thesis-main {
+      padding: clamp(24px, 4vw, 38px);
+      border-right: 1px solid rgba(244, 236, 223, 0.28);
+    }
+
+    .thesis-main h2 {
+      color: var(--paper);
+      font-size: clamp(28px, 4.6vw, 48px);
+      line-height: 1.12;
+      margin-bottom: 14px;
+      text-wrap: balance;
+    }
+
+    .thesis-main p {
+      color: #eadcca;
+      font-size: 16px;
+      line-height: 1.82;
+      max-width: 760px;
+    }
+
+    .thesis-grid {
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .thesis-metric {
+      padding: 22px;
+      border-bottom: 1px solid rgba(244, 236, 223, 0.22);
+      background:
+        linear-gradient(90deg, rgba(44, 135, 145, 0.20), transparent),
+        rgba(255, 250, 242, 0.04);
+    }
+
+    .thesis-metric:last-child { border-bottom: 0; }
+
+    .thesis-metric b {
+      display: block;
+      color: #f0b24d;
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      margin-bottom: 7px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .thesis-metric span {
+      color: var(--paper);
+      font-size: 14px;
+      line-height: 1.62;
+    }
+
+    .brief {
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+    }
+
+    .brief-card {
+      background: rgba(255, 250, 242, 0.86);
+      box-shadow: 0 10px 24px rgba(34, 23, 13, 0.08);
+    }
+
+    .stats,
+    .grid,
+    .grid.three,
+    .market-grid,
+    .creator-list,
+    .notes {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr));
+    }
+
+    .grid {
+      gap: 18px;
+    }
+
+    .feature {
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 330px);
+    }
+
+    .market {
+      min-height: 0;
+    }
+
+    .creator-list {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
+      gap: 22px;
+    }
+
+    .creator {
+      grid-template-columns: 178px minmax(0, 1fr);
+      padding: 0;
+      overflow: hidden;
+      min-height: 232px;
+      background: var(--white);
+    }
+
+    .creator > div:not(.creator-visual) {
+      padding: 20px 20px 18px 0;
+    }
+
+    .creator-visual {
+      margin: 0;
+      min-height: 232px;
+      background:
+        linear-gradient(135deg, rgba(180, 54, 46, 0.34), rgba(29, 94, 124, 0.18)),
+        repeating-linear-gradient(0deg, rgba(255, 250, 242, 0.11), rgba(255, 250, 242, 0.11) 1px, transparent 1px, transparent 9px),
+        var(--ink);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .creator-visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.08) 58%, rgba(0, 0, 0, 0.42)),
+        var(--photo);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.72;
+      filter: saturate(0.84) contrast(1.06);
+      transform: scale(1.02);
+    }
+
+    .creator-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(22, 19, 16, 0.12), rgba(22, 19, 16, 0.76)),
+        radial-gradient(circle at 26% 18%, rgba(255, 250, 242, 0.24), transparent 28%);
+    }
+
+    .creator-visual .visual-title {
+      position: absolute;
+      z-index: 1;
+      left: 14px;
+      right: 14px;
+      bottom: 42px;
+      color: var(--white);
+      font-family: "Noto Serif SC", "Songti SC", serif;
+      font-weight: 900;
+      font-size: 25px;
+      line-height: 1.05;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.48);
+    }
+
+    .creator-visual .visual-kind {
+      position: absolute;
+      z-index: 1;
+      left: 14px;
+      top: 14px;
+      color: rgba(255, 250, 242, 0.82);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .creator-visual figcaption {
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 8px 10px;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.76));
+      color: rgba(255, 250, 242, 0.88);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .creator-visual figcaption a {
+      color: rgba(255, 250, 242, 0.95);
+      text-decoration-color: rgba(255, 250, 242, 0.5);
+    }
+
+    .visual-note {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: -12px;
+      margin-bottom: 22px;
+    }
+
+    .report-meta {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .report-meta span {
+      border: 1px solid var(--rule);
+      background: rgba(255, 250, 242, 0.76);
+      padding: 5px 8px;
+      color: var(--muted);
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    @supports (text-wrap: balance) {
+      h1,
+      h2,
+      h3,
+      .subtitle {
+        text-wrap: balance;
+      }
+    }
+
+    @media (max-width: 920px) {
+      .storyboard-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .thesis-panel,
+      .feature,
+      .creator {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-main {
+        border-right: 0;
+        border-bottom: 1px solid rgba(244, 236, 223, 0.25);
+      }
+
+      .creator > div:not(.creator-visual) {
+        padding: 20px;
+      }
+
+      .creator-visual {
+        min-height: 260px;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .page {
+        width: calc(100% - 24px);
+      }
+
+      .meta-row {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      h1 {
+        font-size: clamp(48px, 18vw, 78px);
+      }
+
+      .storyboard-strip,
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-grid {
+        grid-template-rows: none;
+      }
+    }
+
+    /* Reading-density pass, aligned with ai_weekly_report_may2026.html. */
+    body {
+      font-size: 15px;
+      line-height: 1.7;
+      background:
+        linear-gradient(90deg, rgba(22, 19, 16, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+        var(--paper);
+    }
+
+    .page {
+      width: calc(100% - 48px);
+      max-width: 960px;
+      padding: 40px 0 80px;
+    }
+
+    .masthead {
+      text-align: center;
+      padding: 28px 0 22px;
+      margin-bottom: 32px;
+      border-top: 4px solid var(--ink);
+      border-bottom: 4px double var(--ink);
+    }
+
+    .meta-row {
+      padding: 0;
+      margin-bottom: 14px;
+      border-bottom: 0;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+
+    .title-block {
+      text-align: center;
+      padding: 0;
+      max-width: none;
+      margin: 0 auto;
+    }
+
+    .kicker {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      margin-bottom: 10px;
+      color: var(--muted);
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 58px);
+      line-height: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 14px auto 0;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .report-meta {
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    .report-meta span {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+
+    .storyboard-strip {
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .story-frame {
+      min-height: 92px;
+      padding: 14px;
+    }
+
+    .story-frame b {
+      font-size: 22px;
+    }
+
+    .story-frame span {
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .dateline {
+      margin-bottom: 28px;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+    }
+
+    .thesis-panel {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      margin-bottom: 40px;
+      box-shadow: none;
+    }
+
+    .thesis-main {
+      padding: 28px 32px;
+    }
+
+    .thesis-main h2 {
+      font-size: 26px;
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+
+    .thesis-main p {
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    .thesis-metric {
+      padding: 18px 20px;
+    }
+
+    .thesis-metric b {
+      font-size: 10px;
+    }
+
+    .thesis-metric span {
+      font-size: 12.5px;
+    }
+
+    h2 {
+      font-size: 26px;
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 18px;
+      line-height: 1.32;
+    }
+
+    .deck {
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .feature {
+      grid-template-columns: minmax(0, 1fr) 300px;
+      margin-bottom: 40px;
+      box-shadow: none;
+    }
+
+    .feature-main {
+      padding: 30px 28px;
+    }
+
+    .feature-side {
+      padding: 24px 20px;
+    }
+
+    .grid,
+    .grid.three,
+    .notes,
+    .creator-list {
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card,
+    .market,
+    .creator,
+    .note {
+      padding: 22px 22px 18px;
+    }
+
+    .card p,
+    .feature p,
+    .market p,
+    .creator p,
+    .note p {
+      font-size: 13.5px;
+      line-height: 1.75;
+    }
+
+    .stats {
+      margin-bottom: 40px;
+    }
+
+    .stat {
+      min-height: 94px;
+      padding: 16px 12px;
+    }
+
+    .stat strong {
+      font-size: 24px;
+    }
+
+    .market-grid {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 168px), 1fr));
+      gap: 12px;
+    }
+
+    .market {
+      padding: 16px;
+    }
+
+    .creator-list {
+      grid-template-columns: 1fr;
+    }
+
+    .creator {
+      grid-template-columns: 210px minmax(0, 1fr);
+      min-height: 220px;
+      padding: 0;
+    }
+
+    .creator-visual {
+      min-height: 220px;
+    }
+
+    .creator-visual .visual-title {
+      font-size: 24px;
+    }
+
+    .actions {
+      padding: 28px 32px;
+      margin-bottom: 40px;
+    }
+
+    .observation-box {
+      background: var(--blue);
+      color: var(--paper);
+      padding: 28px 32px;
+      margin: 40px 0;
+      border-left: 6px solid var(--gold);
+    }
+
+    .observation-box h2 {
+      color: var(--paper);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.32);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .observation-box p,
+    .observation-box li {
+      color: #e9dfcf;
+      font-size: 13.5px;
+      line-height: 1.78;
+    }
+
+    .observation-box ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+    }
+
+    .sources {
+      font-size: 12.5px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: calc(100% - 28px);
+        padding-top: 28px;
+      }
+
+      .meta-row,
+      .dateline {
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: clamp(38px, 13vw, 52px);
+      }
+
+      .storyboard-strip,
+      .thesis-panel,
+      .feature,
+      .creator {
+        grid-template-columns: 1fr;
+      }
+
+      .creator > div:not(.creator-visual) {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div class="meta-row">
+        <span>AI short drama / motion comic report</span>
+        <span>Generated 2026-06-03 00:51 PDT · Model GPT-5 Codex · 5.5 · 超高推理</span>
+      </div>
+      <div class="title-block">
+        <div class="kicker">Research dossier / 2024-2026 public signals</div>
+        <h1><span>AI短剧</span>生产线</h1>
+        <div class="subtitle">短剧先跑，好莱坞后想。AI在短剧/漫剧里的第一波商业化，不是“替代导演”，而是把高频爽点内容变成可测试、可复盘、可本地化的生产系统。</div>
+        <div class="report-meta">
+          <span>截至 2026-06-03</span>
+          <span>读者：内容业务 / 产品 / 市场 / 创业观察者</span>
+          <span>链接：正文超链 + 悬停说明</span>
+        </div>
+      </div>
+      <div class="storyboard-strip" aria-label="AI short drama production loop">
+        <div class="story-frame"><b>01</b><span>IP库与爽点脚本<br>先判断钩子，不先烧预算。</span></div>
+        <div class="story-frame"><b>02</b><span>AI分镜与概念片<br>把奇观题材做成可看的样片。</span></div>
+        <div class="story-frame"><b>03</b><span>投流与评论反馈<br>让观众数据决定下一版。</span></div>
+        <div class="story-frame"><b>04</b><span>漫剧与本地化<br>把赢家扩成多语言、多形态。</span></div>
+      </div>
+    </header>
+
+    <div class="dateline">
+      <span>Report generated / 2026-06-03 00:51 PDT</span>
+      <span>Generated by / GPT-5 Codex · 5.5 · 超高推理</span>
+    </div>
+
+    <section class="thesis-panel">
+      <div class="thesis-main">
+        <div class="tag">结论 / core thesis</div>
+        <h2>AI短剧的胜负，不在“一键成片”，在“同一爽点能试多少版”。</h2>
+        <p>短剧/漫剧最像内容行业的快消实验室：一个网文爽点可以同时生成真人概念片、动态漫剧、海外字幕版、广告封面和不同付费节点。真正跑出来的团队，不是把剧组省掉，而是把选题、样片、投流、评论、复盘连成闭环。</p>
+        <p>因此判断AI短剧项目，不要先问“像不像电影”，先问三件事：它有没有可复用IP库？有没有低成本多版本测试能力？有没有把观众反馈回灌到下一集的机制？</p>
+      </div>
+      <aside class="thesis-grid" aria-label="core judgment">
+        <div class="thesis-metric"><b>最值得押注</b><span>AI漫剧、奇幻/科幻短剧、海外本地化、投流素材和IP试改。</span></div>
+        <div class="thesis-metric"><b>最容易误判</b><span>播放量被买量和平台宣发放大；“全AI”噱头常遮住剧本薄、角色空的问题。</span></div>
+        <div class="thesis-metric"><b>先看指标</b><span>完播、次留、付费转化、复看、评论可改写率，而不是单条视频的模型炫技。</span></div>
+      </aside>
+    </section>
+
+    <section class="brief">
+      <div class="brief-card">
+        <h2>今日建议</h2>
+        <p>把这份报告转成一个一周实验：选 3 个题材、各写 10 条 60 秒钩子脚本，用AI做分镜/概念片，再拿不同市场的广告文案测试点击。先验证“题材-钩子-受众”，别急着重资产拍完整剧。</p>
+      </div>
+      <aside class="brief-card">
+        <h3>一句话判断</h3>
+        <ul class="brief-list">
+          <li><strong>短剧</strong>：AI先降低试错成本。</li>
+          <li><strong>漫剧</strong>：AI先放大IP改编产能。</li>
+          <li><strong>海外</strong>：先看付费能力，再看AI接受度。</li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="stats" aria-label="key stats">
+      <div class="stat">
+        <strong>$700M</strong>
+        <span><a href="https://sensortower.com/blog/state-of-short-drama-apps-2025" title="Sensor Tower：2025年Q1全球短剧App内购收入接近7亿美元，口径不含广告、第三方安卓商店和站外支付。">Q1 2025全球短剧App内购收入</a></span>
+      </div>
+      <div class="stat">
+        <strong>49%</strong>
+        <span><a href="https://sensortower.com/blog/state-of-short-drama-apps-2025" title="Sensor Tower：美国在2025年Q1贡献约49%的全球短剧App内购收入，约3.5亿美元。">美国占全球短剧App内购收入份额</a></span>
+      </div>
+      <div class="stat">
+        <strong>900亿</strong>
+        <span><a href="https://www.shanghai.gov.cn/nw4411/20251212/eca5c3d2a62347da936580a95f23a7fb.html" title="上海发布/解放日报引述《2025上海市微短剧行业发展报告》：2025年国内微短剧行业产值截至当时已接近900亿元。">人民币，2025国内微短剧产值近似量级</a></span>
+      </div>
+      <div class="stat">
+        <strong>38%</strong>
+        <span><a href="https://www.ecns.cn/m/news/cns-wire/2026-02-09/detail-iheztexa9809575.shtml" title="中新社/ECNS援引DataEye：2026年1月AI驱动数字人剧占Top 100漫剧标题的38%，较一年前7%提高。该口径属行业监测，需结合平台原始数据复核。">AI数字人剧在Top 100漫剧中的行业监测占比</a></span>
+      </div>
+    </section>
+
+    <div class="section-label"><div class="label">Headline</div><div class="line"></div></div>
+    <h2>真正的变化：AI把“短剧工厂”前移到选题阶段</h2>
+    <p class="deck">头部短剧平台的分发和买量系统已经证明市场存在；AI的加入，让过去不敢拍的怪兽、玄幻、科幻、历史幻想，变成低成本可试错的内容。</p>
+
+    <section class="feature">
+      <div class="feature-main">
+        <div class="tag">Core thesis / confirmed + inferred</div>
+        <h3>“AI短剧”最有价值的不是一键成片，而是低成本生成多个可投流版本。</h3>
+        <p>在短剧业务里，模型只是流水线的一段。更关键的是：网文/IP库给题材，AI生成视觉和分镜，短视频平台给流量测试，评论区再反向喂给编剧和投放团队。<a href="https://arxiv.org/abs/2602.14045" title="arXiv 2026：对微短剧编剧的访谈研究，提出受众反馈驱动的短剧生产方式。">“观众在循环里”</a>这件事，比“视频有多像电影”更接近商业核心。</p>
+        <p>所以AI短剧的第一阶段不会冲击诺兰式长片，先冲击的是：概念预告、投流素材、IP试改、漫剧连载、海外本地化和低预算奇幻视觉。</p>
+        <div class="verdict">谨慎判断：短剧/漫剧是AI视频商业化的“低海拔机场”。能起飞，但不代表可以直接飞越长剧、电影、明星和版权体系。</div>
+      </div>
+      <aside class="feature-side">
+        <div class="tag">Related signals</div>
+        <p><a href="https://www.nrta.gov.cn/art/2025/1/4/art_113_69936.html" title="国家广电总局2025年1月发布“微短剧+”行动计划，鼓励微短剧与旅游、科普、品牌传播、教育等结合。">广电总局“微短剧+”</a>把短剧定位为文旅、科普、品牌等场景的新载体。</p>
+        <p><a href="https://www.nrta.gov.cn/art/2025/2/5/art_113_70148.html" title="国家广电总局2025年2月通知：分类分层审核、白名单、总编辑内容负责制，未取得许可证或备案号不得上线传播。">监管要求</a>也更清晰：先审后播、备案/许可证、平台责任，低俗爽感的野蛮生长期结束。</p>
+        <p><a href="https://arxiv.org/abs/2605.22144" title="arXiv 2026：One Sentence, One Drama，尝试用多智能体系统解决短剧节奏、空间一致性和质量审查问题。">最新研究</a>开始专门处理短剧节奏、空间一致性和多轮质检，说明问题已从“能不能生成”转向“能不能稳定生产”。</p>
+      </aside>
+    </section>
+
+    <div class="section-label"><div class="label">Breakouts</div><div class="line"></div></div>
+    <h2>哪些AI短剧、漫剧已经跑出？</h2>
+    <p class="deck">这里的“跑出”分三层：有播放/收入信号、有平台或机构背书、有可复制的生产方式。播放量尤其要谨慎，因为短剧常混合自然流量、投流和平台宣发。</p>
+
+    <section class="grid">
+      <article class="card">
+        <div class="tag">Kling + Kuaishou / confirmed by media + platform signals</div>
+        <h3>《山海奇镜之劈波斩浪》：AI最先吃下“真人短剧拍不起”的怪兽题材</h3>
+        <p>快手星芒短剧与可灵AI的早期代表作，行业媒体称5集正片播放量超过5200万、话题曝光超4.3亿。它的价值不在剧情复杂，而在证明山海经、水火神兽、海底奇观这类高成本视觉可以先用AI跑通。</p>
+        <div class="chip-row">
+          <span class="chip">玄幻/神话</span><span class="chip">强视觉</span><span class="chip">平台口径需复核</span>
+        </div>
+      </article>
+
+      <article class="card gold">
+        <div class="tag">Kling + Outliers / confirmed</div>
+        <h3>《新世界加载中》：从爆款短剧转向“AI单元剧集样板间”</h3>
+        <p>央视网报道该项目由<a href="https://news.cctv.com/2025/06/26/ARTINk9n1pgiuve5TYZhv9m1250626.shtml" title="央视网：2025年6月，快手可灵AI与星芒短剧、异类Outliers团队推出《新世界加载中》。">可灵AI、星芒短剧与Outliers</a>联合推出，7个单元、总时长180分钟。它更像技术和导演流程的展示：科幻、历史、荒诞、东方美学都试一遍。</p>
+        <div class="chip-row">
+          <span class="chip">7个故事</span><span class="chip">180分钟</span><span class="chip">工业化展示</span>
+        </div>
+      </article>
+
+      <article class="card green">
+        <div class="tag">Paid AI drama / likely, mixed metrics</div>
+        <h3>《兴安岭诡事》：付费AI短剧的早期黑马，也提醒别迷信“一键生成”</h3>
+        <p>多家媒体报道该剧在上线后达到数千万播放量，部分报道给出抖音约5600万、全网破亿等不同口径。导演丁宽的采访反而更重要：核心创作并非全自动，剧本、导演、剪辑仍靠人把关。</p>
+        <div class="chip-row">
+          <span class="chip">付费测试</span><span class="chip">奇幻探险</span><span class="chip">数据口径不一</span>
+        </div>
+      </article>
+
+      <article class="card blue">
+        <div class="tag">Sci-fi IP / confirmed</div>
+        <h3>《太阳坠落之时》：科幻短剧把AI和网文作者库接上了</h3>
+        <p><a href="https://china-world.china.org.cn/culture/2025-05/14/content_117883516.shtml" title="China.org.cn：2025年5月报道《The Sun That Fell》上线并吸引大量观看，制作方与十余位中国科幻作者达成后续开发协议。">China.org.cn</a>称其为中国首部AI生成科幻微短剧，2025年4月30日上线后获得关注，制作方随后与十余位科幻作者达成开发协议。真正值得看的是“AI视觉 + 科幻IP库”的组合。</p>
+        <div class="chip-row">
+          <span class="chip">科幻</span><span class="chip">IP储备</span><span class="chip">作者合作</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="signal">
+      <div class="signal-panel">
+        <div class="tag">Motion comics / emerging</div>
+        <h3>漫剧比真人AI短剧更适合规模化</h3>
+        <p>漫剧的画面本来就介于漫画、动画和短剧之间，观众对“非写实”的容忍度更高。红果、抖音、番茄小说、快手、B站、阅文等都在围绕IP开放、分成、保底和AIGC工具链抢供给。</p>
+        <p>这也是AI漫剧在2025-2026突然变热的原因：它不需要先跨过真人表演的“恐怖谷”，可以先用网文爽点和动态漫画完成付费/广告闭环。</p>
+      </div>
+      <div class="signal-panel">
+        <div class="tag">Distribution moat / confirmed</div>
+        <h3>但短剧最大的头部，不一定是AI内容</h3>
+        <ul class="signal-list">
+          <li><b>ReelShort</b><span><a href="https://sensortower.com/blog/state-of-short-drama-apps-2025" title="Sensor Tower：ReelShort 2025年Q1内购收入约1.3亿美元，累计约4.9亿美元。">Q1 2025内购约1.3亿美元</a>，仍是海外短剧收入头部。</span></li>
+          <li><b>DramaBox</b><span>Q1 2025内购约1.2亿美元，累计约4.5亿美元；东南亚表现尤其强。</span></li>
+          <li><b>DramaWave</b><span>2024年9月出海，2025年Q1下载环比超10倍，说明新玩家仍可靠本地化广告突围。</span></li>
+          <li><b>FlickReels</b><span>《The Reunion of Genius Baby》推动其在美国iOS总榜冲高，证明爆款单剧仍能带平台。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="takeaway">
+      <h2>小结</h2>
+      <p>内容层的赢家不一定是模型最强的人，而是最会把IP、钩子、投流、评论反馈、付费节点和本地化串成闭环的人。AI只是让这个闭环转得更快，也让劣质内容更快泛滥。</p>
+    </div>
+
+    <div class="section-label"><div class="label">Markets</div><div class="line"></div></div>
+    <h2>全球市场：哪里最容易接受AI短剧、漫剧？</h2>
+    <p class="deck">严格说，公开数据更多证明“短剧格式”在全球增长，不足以直接证明“AI短剧”被各地观众接受。因此下面区分“短剧付费/下载强度”和“AI标签阻力”。</p>
+
+    <section class="market-grid">
+      <article class="market">
+        <div class="tag">China</div>
+        <h3>中国大陆</h3>
+        <div class="bar" aria-label="acceptance high"><i style="width: 88%"></i></div>
+        <p>供给、平台、IP和工具链最完整。观众对AI视觉的容忍度高，尤其是玄幻、怪兽、漫剧。但监管、版权、低俗爽感和平台补贴退坡会决定谁能留下。</p>
+        <div class="chip-row"><span class="chip">接受度高</span><span class="chip">监管强</span></div>
+      </article>
+
+      <article class="market blue">
+        <div class="tag">US / Canada</div>
+        <h3>北美</h3>
+        <div class="bar" aria-label="acceptance medium"><i style="width: 64%"></i></div>
+        <p>美国是短剧App收入最高市场，但AI标签容易触发劳工、版权和“AI slop”争议。商业上可先做本地化短剧、广告素材和预演，不宜高调宣称“替代演员”。</p>
+        <div class="chip-row"><span class="chip">付费强</span><span class="chip">AI阻力高</span></div>
+      </article>
+
+      <article class="market green">
+        <div class="tag">LATAM</div>
+        <h3>拉美</h3>
+        <div class="bar" aria-label="growth high"><i style="width: 78%"></i></div>
+        <p>Sensor Tower称2025年Q1拉美短剧App下载接近1亿、环比增长69%。机会在西语/葡语本地化和低价广告变现，AI接受度更可能由内容和价格决定。</p>
+        <div class="chip-row"><span class="chip">下载高增</span><span class="chip">ARPU需控</span></div>
+      </article>
+
+      <article class="market gold">
+        <div class="tag">SEA</div>
+        <h3>东南亚</h3>
+        <div class="bar" aria-label="growth high"><i style="width: 80%"></i></div>
+        <p>2025年Q1东南亚下载约8700万、环比增长61%。家庭伦理、豪门、复仇、宗教/阶层语境要精细本地化；AI可先做字幕、配音、封面和漫剧改编。</p>
+        <div class="chip-row"><span class="chip">下载强</span><span class="chip">本地化重</span></div>
+      </article>
+
+      <article class="market violet">
+        <div class="tag">Japan / Korea / Europe</div>
+        <h3>日韩与欧洲</h3>
+        <div class="bar" aria-label="acceptance mixed"><i style="width: 52%"></i></div>
+        <p>日韩对漫画/动画品质更敏感，AI辅助可以进流程，但“廉价替代”容易伤品牌。欧洲更重版权、劳动伦理和公共讨论，适合艺术短片、教育科普和实验影像。</p>
+        <div class="chip-row"><span class="chip">审美门槛高</span><span class="chip">版权敏感</span></div>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Creators</div><div class="line"></div></div>
+    <h2>导演、KOL与创作者：谁在试，谁翻车？</h2>
+    <p class="deck">成功者通常把AI放进“人类创作流程”；失败者常把AI当噱头，或直接触碰演员、画师、版权方最敏感的边界。</p>
+    <p class="visual-note">图片使用公开页面或官方页面的远程资源；每张图下方保留来源入口，避免把素材“无来源化”。</p>
+
+    <section class="creator-list">
+      <article class="creator">
+        <figure class="creator-visual" style="--photo: url(&#39;https://commons.wikimedia.org/wiki/Special:Redirect/file/Darren%20Aronofsky%202025%202.jpg?width=640&#39;)" role="img" aria-label="Darren Aronofsky public photo visual">
+          <span class="visual-kind">Director / art film</span>
+          <span class="visual-title">Darren<br>Aronofsky</span>
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Darren_Aronofsky_2025_2.jpg" title="Wikimedia Commons: Darren Aronofsky 2025 2.jpg">Wikimedia Commons</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">successful legitimacy, not mass proof</div>
+          <h3>Aronofsky + Google DeepMind：用艺术片给AI流程背书</h3>
+          <p><a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/deepmind-primordial-soup-collaboration/" title="Google：Darren Aronofsky的Primordial Soup与Google DeepMind合作，制作三部使用Veo等生成式AI工具的短片。">Primordial Soup</a>与Google DeepMind合作，<a href="https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ancestra-behind-the-scenes/" title="Google：ANCESTRA由Eliza McNitt执导，结合真人拍摄与Veo生成影像，在Tribeca首映。">《ANCESTRA》</a>在Tribeca首映。它的成功是“艺术家在场”的成功，不是“无人剧组”的成功。</p>
+        </div>
+      </article>
+
+      <article class="creator blue">
+        <figure class="creator-visual" style="--photo: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Soderbergh_cropped_2009.jpg/500px-Soderbergh_cropped_2009.jpg&#39;)" role="img" aria-label="Steven Soderbergh public photo visual">
+          <span class="visual-kind">Director / documentary</span>
+          <span class="visual-title">Steven<br>Soderbergh</span>
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:Soderbergh_cropped_2009.jpg" title="Wikimedia Commons: Soderbergh cropped 2009.jpg">Wikimedia Commons</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">mixed result / transparent but divisive</div>
+          <h3>Soderbergh：透明使用AI，也会让观众跑题</h3>
+          <p>AP报道称《John Lennon: The Last Interview》约<a href="https://apnews.com/article/7794a4344ed455cae4c5780fa6610860" title="AP：Soderbergh接受Meta AI工具生成约10%的超现实影像，用于补足纪录片视觉段落，并公开讨论争议。">10%影像使用AI</a>。透明值得肯定，但戛纳讨论焦点被AI抢走，说明AI一旦喧宾夺主，会吞掉作品本身。</p>
+        </div>
+      </article>
+
+      <article class="creator green">
+        <figure class="creator-visual" style="--photo: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/James_Cameron.jpg/500px-James_Cameron.jpg&#39;)" role="img" aria-label="James Cameron public photo visual">
+          <span class="visual-kind">Director / infrastructure</span>
+          <span class="visual-title">James<br>Cameron</span>
+          <figcaption><a href="https://commons.wikimedia.org/wiki/File:James_Cameron.jpg" title="Wikimedia Commons: James Cameron.jpg">Wikimedia Commons</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">infrastructure endorsement</div>
+          <h3>Cameron：不是拍AI短剧，而是押注影像基础设施</h3>
+          <p>他在2024年加入<a href="https://stability.ai/news-updates/james-cameron-joins-stability-ai-board-of-directors" title="Stability AI官方：James Cameron于2024年9月加入董事会。">Stability AI董事会</a>。这给AI影像公司带来工业信誉，但不能直接推导出观众愿意看AI演员主演的剧。</p>
+        </div>
+      </article>
+
+      <article class="creator gold">
+        <figure class="creator-visual" style="--photo: url(&#39;https://d3phaj0sisr2ct.cloudfront.net/aiff/images/gallery/2025/aiff2025nyc-005.webp&#39;)" role="img" aria-label="Runway AI Film Festival official event visual">
+          <span class="visual-kind">Festival / community</span>
+          <span class="visual-title">Runway<br>AIFF</span>
+          <figcaption><a href="https://aif.runwayml.com/" title="Runway AIF official gallery and festival information">Runway AIF official</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">creator community signal</div>
+          <h3>Runway + IMAX：AI短片进影院，争议也同步进影院</h3>
+          <p><a href="https://runwayml.com/news/runway-imax-aiff-presentation" title="Runway：与IMAX合作展示2025 AI Film Festival作品。">Runway与IMAX</a>合作放映AI Film Festival作品；AP报道2025年收到约6000份投稿。创作者热情是真，影迷反感也是真。</p>
+        </div>
+      </article>
+
+      <article class="creator violet">
+        <figure class="creator-visual" style="--photo: url(&#39;https://9to5google.com/wp-content/uploads/sites/4/2024/04/tcl-next-stop-paris-ai-special.jpg?quality=82&amp;strip=all&amp;w=1600&#39;)" role="img" aria-label="TCL Next Stop Paris promotional still visual">
+          <span class="visual-kind">Failure case / AI short</span>
+          <span class="visual-title">Next Stop<br>Paris</span>
+          <figcaption><a href="https://9to5google.com/2024/04/12/tcl-ai-generated-original-next-stop-paris/" title="9to5Google: TCL Next Stop Paris AI-generated original coverage">9to5Google / TCL still</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">failure lesson</div>
+          <h3>TCL《Next Stop Paris》：AI标签救不了平庸故事</h3>
+          <p>这部AI浪漫短片预告在2024年遭大量嘲讽，批评集中在模板化剧情、僵硬角色和“为了AI而AI”。短剧行业应记住：狗血可以，寡淡不行。</p>
+        </div>
+      </article>
+
+      <article class="creator">
+        <figure class="creator-visual" style="--photo: url(&#39;https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Tilly_Norwood_on_Instagram_%286_May_2025%29.jpg/250px-Tilly_Norwood_on_Instagram_%286_May_2025%29.jpg&#39;)" role="img" aria-label="Tilly Norwood public page image visual">
+          <span class="visual-kind">Boundary case / AI actor</span>
+          <span class="visual-title">Tilly<br>Norwood</span>
+          <figcaption><a href="https://en.wikipedia.org/wiki/Tilly_Norwood" title="Wikipedia: Tilly Norwood page and image context">Wikipedia page image</a></figcaption>
+        </figure>
+        <div>
+          <div class="tag">boundary failure</div>
+          <h3>AI演员Tilly Norwood：替代真人的叙事最容易被反噬</h3>
+          <p>好莱坞对AI演员的反弹显示，观众和从业者反感的不是所有AI，而是未经同意的形象替代和劳动替代。<a href="https://www.lemonde.fr/en/culture/article/2025/10/03/hollywood-fires-back-at-tilly-norwood-the-actress-created-by-artificial-intelligence_6746039_30.html" title="Le Monde：AI演员Tilly Norwood引发好莱坞演员和行业人士强烈反弹。">Tilly Norwood</a>是红线样本。</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="section-label"><div class="label">Acceptance</div><div class="line"></div></div>
+    <h2>社会接纳度：观众接受“AI辅助”，不一定接受“AI冒充人”</h2>
+    <p class="deck">短剧观众的耐心很短，但伦理判断不一定弱。不同地区的分歧主要来自文化消费习惯、工会传统、版权意识和付费结构。</p>
+
+    <section class="debate">
+      <div class="yes">
+        <h3>更容易被接受的用法</h3>
+        <ul>
+          <li>玄幻、怪兽、科幻、历史幻想等本来就“不写实”的视觉。</li>
+          <li>漫剧、动态漫画、角色设定图、分镜、封面、广告素材。</li>
+          <li>字幕、配音、本地化剪辑、A/B版本测试。</li>
+          <li>透明标注“AI辅助”，并保留编剧、导演、演员、画师的署名和分工。</li>
+        </ul>
+      </div>
+      <div class="no">
+        <h3>最容易翻车的用法</h3>
+        <ul>
+          <li>用AI复刻明星、演员或在世创作者风格，尤其没有授权。</li>
+          <li>把“降本”包装成“艺术革命”，但内容只是模板拼贴。</li>
+          <li>过度依赖平台补贴和投流，播放高但留存、付费和复看弱。</li>
+          <li>在纪录片、历史、新闻类内容里让观众误以为AI画面是真实资料。</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="section-label"><div class="label">Other Questions</div><div class="line"></div></div>
+    <h2>还值得盯住的五个问题</h2>
+    <p class="deck">这些问题比“哪个模型更像真人”更关键，因为它们决定AI短剧会成为长期生产力，还是平台补贴吹起的短期泡沫。</p>
+
+    <section class="grid three">
+      <article class="card blue">
+        <div class="tag">Data hygiene</div>
+        <h3>播放量不等于粉丝资产</h3>
+        <p>短剧常靠买量、免费集和强付费节点放大数据。判断一个AI剧是否真跑出，要看完播、次日留存、付费转化、复看和IP外溢，而不是单看播放量。</p>
+      </article>
+
+      <article class="card green">
+        <div class="tag">Workflow moat</div>
+        <h3>模型会降价，流程才是护城河</h3>
+        <p>一条稳定流水线包括题材库、提示词规范、角色一致性、镜头审查、版权清单、投放反馈和本地化。只会用视频模型，壁垒很薄。</p>
+      </article>
+
+      <article class="card gold">
+        <div class="tag">Genre fit</div>
+        <h3>AI更适合“奇观”，不擅长“微表情”</h3>
+        <p>神话、末世、沙雕、异世界、科幻更好跑；现实主义爱情、家庭伦理和明星脸特写更容易暴露表演问题。短剧可以狗血，但不能没有情绪锚点。</p>
+      </article>
+
+      <article class="card violet">
+        <div class="tag">Rights</div>
+        <h3>授权会成为下一轮门票</h3>
+        <p>平台开放网文IP、版权中心和分成计划，说明行业知道“随便生成”走不远。AI漫剧尤其要把IP授权、画风授权、声音授权写进合同。</p>
+      </article>
+
+      <article class="card">
+        <div class="tag">Beyond entertainment</div>
+        <h3>“微短剧+”可能比娱乐更稳</h3>
+        <p>文旅、科普、职业教育、城市宣传、公益沟通都能借短剧的强钩子结构。这里的AI价值是低成本做多版本，而不是追求爆款爽剧。</p>
+      </article>
+
+      <article class="card blue">
+        <div class="tag">Audience fatigue</div>
+        <h3>AI内容过剩会让爽点更快贬值</h3>
+        <p>当每个团队都能一周上新，稀缺品会从“画面”变成“人味”：人物关系、笑点、世界观、价值观和可以被记住的角色。</p>
+      </article>
+    </section>
+
+    <section class="actions">
+      <h2>本周可执行清单</h2>
+      <ul>
+        <li>把<a href="https://sensortower.com/blog/state-of-short-drama-apps-2025" title="Sensor Tower短剧App报告，适合建立海外市场基线。">Sensor Tower短剧市场数据</a>拆成美国、拉美、东南亚三张市场假设表：付费能力、题材偏好、投流语言、竞品App。</li>
+        <li>选一个网文/漫画IP，做“真人短剧版”和“AI漫剧版”两套60秒开场分镜，比较角色理解成本和视觉成本。</li>
+        <li>建立AI短剧版权检查表：IP、角色、演员肖像、声音、训练素材、音乐、字体、海报元素、平台备案。</li>
+        <li>用3个题材做小样：玄幻怪兽、豪门复仇、科普/文旅。每个只做30-60秒，不做完整剧。</li>
+        <li>建立“失败样本库”：TCL式模板故事、AI演员替代真人、纪录片误导画面、无授权明星脸，团队内部先禁用。</li>
+        <li>追踪<a href="https://arxiv.org/abs/2605.22144" title="One Sentence, One Drama研究方向：多智能体生成短剧。">短剧多智能体生成</a>和角色一致性工具，它们会决定AI短剧从样片走向批量生产的速度。</li>
+      </ul>
+    </section>
+
+    <div class="section-label"><div class="label">Theses</div><div class="line"></div></div>
+    <h2>四条趋势判断</h2>
+    <p class="deck">它们不是预测“AI会替代影视”，而是判断哪些商业环节会最先被AI重排。</p>
+
+    <section class="notes">
+      <article class="note">
+        <h3>1. 短剧出海先是分发生意，后是AI生意。</h3>
+        <p>ReelShort、DramaBox证明了付费和投流模型；AI内容要先进入这些分发规则，才谈得上规模。</p>
+      </article>
+      <article class="note">
+        <h3>2. 漫剧会成为网文IP的“低成本影像中间层”。</h3>
+        <p>它比真人剧便宜，比纯文字更容易投流，比动画更快交付，适合作为IP筛选和粉丝验证层。</p>
+      </article>
+      <article class="note">
+        <h3>3. 好莱坞会把AI先当基础设施，不会先当主演。</h3>
+        <p>预演、VFX、修复、概念图、历史视觉化会更快进入主流；AI演员和全AI长片仍会遇到强阻力。</p>
+      </article>
+      <article class="note">
+        <h3>4. 爽点会贬值，角色会升值。</h3>
+        <p>AI让套路内容供给暴增，最终能沉淀IP的，是角色、世界观和可复用的情绪关系。</p>
+      </article>
+      <article class="note">
+        <h3>5. 监管会逼行业从“野蛮投流”转向“可备案生产”。</h3>
+        <p>中国市场尤其如此。合规不是附录，而是上线、投流、平台合作和出海授权的前置条件。</p>
+      </article>
+      <article class="note">
+        <h3>6. 最好的团队会像游戏团队。</h3>
+        <p>他们会做版本、留存、数值、反馈循环和长期IP运营，而不是只像传统剧组一样拍完交片。</p>
+      </article>
+    </section>
+
+    <section class="observation-box">
+      <h2>值得继续深挖：AI短剧会不会先变成“测试IP的金融工具”？</h2>
+      <p>最值得观察的不是某一部 AI 短剧能不能爆，而是短剧、漫剧和投流数据会不会变成 IP 估值的前置市场。过去一个网文 IP 要等改编、拍摄、上线后才知道能不能打；现在可能先用 AI 做 20 个概念切片，在美国、东南亚、拉美分别投 3 天广告，再决定买不买版权、拍不拍真人、做不做漫剧。</p>
+      <ul>
+        <li>如果 AI 样片点击率能预测正剧付费率，IP 采购会从“编辑眼光”变成“数据期权”。</li>
+        <li>如果 AI 漫剧能先跑出角色粉丝，真人短剧会反过来成为二阶段放大器。</li>
+        <li>真正危险的问题是：当所有团队都能低成本测试 100 个爽点，观众会不会更快厌倦，导致“钩子通胀”？</li>
+      </ul>
+    </section>
+
+    <footer class="sources">
+      <p class="source-note">生成信息：2026-06-03 00:51 PDT · 生成模型：GPT-5 Codex · 5.5 · 超高推理。后续报告应默认在页首与页脚同时保留生成时间、生成模型、资料截至日期和来源口径说明。</p>
+      <p class="source-note">资料口径：正文链接包含主要来源。Sensor Tower数据为App Store与Google Play内购估算，不含广告、第三方安卓商店和站外支付；平台/行业媒体播放量未必经过第三方审计，报告中已标注“平台口径/行业监测/推断”。</p>
+      <p>关键来源还包括：<a href="https://www.cnbc.com/2025/07/22/why-chinas-7b-micro-drama-industry-is-taking-over-social-feeds.html" title="CNBC：报道中国微短剧市场规模、美国下载头部平台等。">CNBC短剧市场报道</a>、<a href="https://www.newindianexpress.com/lifestyle/tech/2025/Nov/07/chinese-microdrama-creators-turn-to-ai-despite-job-loss-concerns" title="AFP经New Indian Express转载：报道中国AI微短剧创作者、工具链和观众对视觉瑕疵的容忍。">AFP关于中国AI微短剧创作者的报道</a>、<a href="https://apnews.com/article/3b5d40e4c2e20f7a4d34f1f5d4907ba7" title="AP：Runway AI Film Festival 2025从约6000份投稿中选出10部短片。">AP关于Runway AI Film Festival的报道</a>、<a href="https://9to5google.com/2024/04/12/tcl-ai-generated-original-next-stop-paris/" title="9to5Google：TCL推出AI生成原创短片《Next Stop Paris》并遭遇批评。">TCL《Next Stop Paris》案例</a>。</p>
+    </footer>
+  </main>
+
+
+</body></html>
